@@ -19,7 +19,7 @@ import { useRouter } from 'next/navigation';
 import { getLoggedInUser, signIn, signUp } from '@/lib/actions/user.actions';
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import CustomInput from './CustomInput';
 import { Loader2 } from 'lucide-react';
 
@@ -44,8 +44,6 @@ const AuthForm = ({ type }: { type: string }) => {
     setIsLoading(true);
 
     try {
-      // Sign up with Appwrite & create plaid token
-
       if (type === 'sign-up') {
         const userData = {
           firstName: data.firstName!,
@@ -86,7 +84,7 @@ const AuthForm = ({ type }: { type: string }) => {
             alt="Horizon logo"
           />
           <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
-            Horizon
+            DevDeck
           </h1>
         </Link>
 
@@ -102,7 +100,7 @@ const AuthForm = ({ type }: { type: string }) => {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4"></div>
+        <div className="flex flex-col gap-4">Link Account</div>
       ) : (
         <>
           <Form {...form}>
