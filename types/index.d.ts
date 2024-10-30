@@ -1,326 +1,218 @@
-/* eslint-disable no-unused-vars */
+declare module 'types' {
+  /* eslint-disable no-unused-vars */
+  export type SearchParamProps = {
+    params: { [key: string]: string };
+    searchParams: { [key: string]: string | string[] | undefined };
+  };
 
-declare type SearchParamProps = {
-  params: { [key: string]: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+  export type SignUpParams = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+  };
 
-// ========================================
+  export type LoginUser = {
+    email: string;
+    password: string;
+  };
 
-declare type SignUpParams = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-};
+  export type User = {
+    $id: string;
+    email: string;
+    userId: string;
+    firstName: string;
+    lastName: string;
+    name: string;
+  };
 
-declare type LoginUser = {
-  email: string;
-  password: string;
-};
+  export type NewUserParams = {
+    userId: string;
+    email: string;
+    name: string;
+    password: string;
+  };
 
-declare type User = {
-  $id: string;
-  email: string;
-  userId: string;
-  dwollaCustomerUrl: string;
-  dwollaCustomerId: string;
-  firstName: string;
-  lastName: string;
-  name: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  dateOfBirth: string;
-  ssn: string;
-};
+  export type Problem = {
+    id: string;
+    title: string;
+    difficulty: string;
+    link: string;
+    completed?: boolean;
+  };
 
-declare type NewUserParams = {
-  userId: string;
-  email: string;
-  name: string;
-  password: string;
-};
+  export type Category = {
+    id: string;
+    name: string;
+    problems: Problem[];
+  };
 
-declare type Account = {
-  id: string;
-  availableBalance: number;
-  currentBalance: number;
-  officialName: string;
-  mask: string;
-  institutionId: string;
-  name: string;
-  type: string;
-  subtype: string;
-  appwriteItemId: string;
-  shareableId: string;
-};
+  export type ProblemsListProps = {
+    categories: Category[];
+  };
 
-declare type Transaction = {
-  id: string;
-  $id: string;
-  name: string;
-  paymentChannel: string;
-  type: string;
-  accountId: string;
-  amount: number;
-  pending: boolean;
-  category: string;
-  date: string;
-  image: string;
-  type: string;
-  $createdAt: string;
-  channel: string;
-  senderBankId: string;
-  receiverBankId: string;
-};
+  export type ProgressProviderProps = {
+    children: React.ReactNode;
+    categories: Category[];
+  };
 
-declare type Bank = {
-  $id: string;
-  accountId: string;
-  bankId: string;
-  accessToken: string;
-  fundingSourceUrl: string;
-  userId: string;
-  shareableId: string;
-};
+  export interface AuthFormProps {
+    type: 'sign-in' | 'sign-up';
+  }
 
-declare type AccountTypes =
-  | 'depository'
-  | 'credit'
-  | 'loan '
-  | 'investment'
-  | 'other';
+  export interface ProgressBoxProps {
+    totalProblems: number;
+    completedProblems: number;
+    progressPercentage: number;
+  }
 
-declare type Category = 'Food and Drink' | 'Travel' | 'Transfer';
+  export interface FooterProps {
+    user: User;
+    type?: 'mobile' | 'desktop';
+  }
 
-declare type CategoryCount = {
-  name: string;
-  count: number;
-  totalCount: number;
-};
+  export interface SiderbarProps {
+    user: User;
+  }
 
-declare type Receiver = {
-  firstName: string;
-  lastName: string;
-};
+  export interface DoughnutChartProps {
+    completedProblems: number;
+    totalProblems: number;
+  }
 
-declare type TransferParams = {
-  sourceFundingSourceUrl: string;
-  destinationFundingSourceUrl: string;
-  amount: string;
-};
+  export interface signInProps {
+    email: string;
+    password: string;
+  }
 
-declare type AddFundingSourceParams = {
-  dwollaCustomerId: string;
-  processorToken: string;
-  bankName: string;
-};
+  export interface getUserInfoProps {
+    userId: string;
+  }
 
-declare type NewDwollaCustomerParams = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  type: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  dateOfBirth: string;
-  ssn: string;
-};
+  export interface QuestionCategory {
+    id: string;
+    name: string;
+    problems: {
+      id: number;
+      title: string;
+      difficulty: 'Easy' | 'Medium' | 'Hard';
+      link: string;
+    }[];
+  }
 
-declare interface CreditCardProps {
-  account: Account;
-  userName: string;
-  showBalance?: boolean;
+  export interface TestCase {
+    id: number;
+    input: any;
+    output: any;
+    explanation: string;
+  }
+
+  export interface TestCaseData {
+    title: string;
+    description: string;
+    cases: TestCase[];
+    constraints: Record<string, boolean>;
+  }
+
+  export type ProblemExtended = Omit<
+    QuestionCategory['problems'][0],
+    'link'
+  > & {
+    category: string;
+    description: string;
+    testCases: TestCase[];
+  };
+
+  // Goal Types
+  export interface Goal {
+    id: string;
+    type: 'daily' | 'category';
+    title: string;
+    current: number;
+    target: number;
+    category?: string;
+    streak: number;
+    lastUpdated: string;
+    completed?: boolean;
+  }
+
+  export interface GoalCardProps {
+    goal: Goal;
+    onUpdateProgress: (goalId: string, change: number) => void;
+    onDelete: (goalId: string) => void;
+  }
+
+  export interface AddGoalDialogProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onAdd: (goal: Goal) => void;
+  }
+
+  export interface GoalsSectionProps {
+    user?: User;
+  }
+
+  export interface StorageUtils {
+    getLocalStorage: <T>(key: string, defaultValue: T) => T;
+    setLocalStorage: <T>(key: string, value: T) => void;
+  }
+
+  export type GoalCategory = {
+    id: string;
+    name: string;
+    icon: string;
+    total: number;
+  };
+
+  export interface GoalProgress {
+    completed: number;
+    total: number;
+  }
+
+  export interface CategoryProgress {
+    [categoryId: string]: GoalProgress;
+  }
+
+  export interface GoalManagement {
+    addGoal: (goal: Goal) => void;
+    updateGoalProgress: (goalId: string, change: number) => void;
+    deleteGoal: (goalId: string) => void;
+    getGoals: () => Goal[];
+  }
+
+  // Context Types
+  export interface ProgressContextType {
+    categoryProgress: {
+      [categoryId: string]: {
+        completed: number;
+        total: number;
+      };
+    };
+    completedProblems: number;
+    totalProblems: number;
+    toggleProblemCompletion: (problemId: string) => void;
+    goals?: Goal[];
+    updateGoalProgress?: (goalId: string, change: number) => void;
+  }
+
+  // Misc Types
+  export type Bank = unknown; // Replace with actual bank type
+  export type Account = unknown; // Replace with actual account type
+  export type Transaction = unknown; // Replace with actual transaction type
+
+  export interface RightSidebarProps {
+    user: User;
+    transactions: Transaction[];
+    banks: (Bank & Account)[];
+    goals?: Goal[];
+  }
+
+  export interface RecentTransactionsProps {
+    accounts: Account[];
+    transactions: Transaction[];
+    appwriteItemId: string;
+    page: number;
+  }
 }
 
-declare interface BankInfoProps {
-  account: Account;
-  appwriteItemId?: string;
-  type: 'full' | 'card';
-}
-
-declare interface HeaderBoxProps {
-  type?: 'title' | 'greeting';
-  title: string;
-  subtext: string;
-  user?: string;
-}
-
-declare interface MobileNavProps {
-  user: User;
-}
-
-declare interface PageHeaderProps {
-  topTitle: string;
-  bottomTitle: string;
-  topDescription: string;
-  bottomDescription: string;
-  connectBank?: boolean;
-}
-
-declare interface PaginationProps {
-  page: number;
-  totalPages: number;
-}
-
-declare interface PlaidLinkProps {
-  user: User;
-  variant?: 'primary' | 'ghost';
-  dwollaCustomerId?: string;
-}
-
-// declare type User = sdk.Models.Document & {
-//   accountId: string;
-//   email: string;
-//   name: string;
-//   items: string[];
-//   accessToken: string;
-//   image: string;
-// };
-
-declare interface AuthFormProps {
-  type: 'sign-in' | 'sign-up';
-}
-
-declare interface BankDropdownProps {
-  accounts: Account[];
-  setValue?: UseFormSetValue<any>;
-  otherStyles?: string;
-}
-
-declare interface BankTabItemProps {
-  account: Account;
-  appwriteItemId?: string;
-}
-
-declare interface ProgressBoxProps {
-  totalProblems: number; // Total number of problems in Blind 75 (static at 75)
-  completedProblems: number; // Number of problems the user has completed
-  progressPercentage: number; // Percentage of problems completed
-}
-
-declare interface FooterProps {
-  user: User;
-  type?: 'mobile' | 'desktop';
-}
-
-declare interface RightSidebarProps {
-  user: User;
-  transactions: Transaction[];
-  banks: Bank[] & Account[];
-}
-
-declare interface SiderbarProps {
-  user: User;
-}
-
-declare interface RecentTransactionsProps {
-  accounts: Account[];
-  transactions: Transaction[];
-  appwriteItemId: string;
-  page: number;
-}
-
-declare interface TransactionHistoryTableProps {
-  transactions: Transaction[];
-  page: number;
-}
-
-declare interface CategoryBadgeProps {
-  category: string;
-}
-
-declare interface TransactionTableProps {
-  transactions: Transaction[];
-}
-
-declare interface CategoryProps {
-  category: CategoryCount;
-}
-
-declare interface DoughnutChartProps {
-  completedProblems: number;
-  totalProblems: number;
-}
-
-declare interface DoughnutChartProps {
-  completedProblems: number;
-  totalProblems: number;
-}
-
-// Actions
-declare interface getAccountsProps {
-  userId: string;
-}
-
-declare interface getAccountProps {
-  appwriteItemId: string;
-}
-
-declare interface getInstitutionProps {
-  institutionId: string;
-}
-
-declare interface getTransactionsProps {
-  accessToken: string;
-}
-
-declare interface CreateFundingSourceOptions {
-  customerId: string; // Dwolla Customer ID
-  fundingSourceName: string; // Dwolla Funding Source Name
-  plaidToken: string; // Plaid Account Processor Token
-  _links: object; // Dwolla On Demand Authorization Link
-}
-
-declare interface CreateTransactionProps {
-  name: string;
-  amount: string;
-  senderId: string;
-  senderBankId: string;
-  receiverId: string;
-  receiverBankId: string;
-  email: string;
-}
-
-declare interface getTransactionsByBankIdProps {
-  bankId: string;
-}
-
-declare interface signInProps {
-  email: string;
-  password: string;
-}
-
-declare interface getUserInfoProps {
-  userId: string;
-}
-
-declare interface exchangePublicTokenProps {
-  publicToken: string;
-  user: User;
-}
-
-declare interface createBankAccountProps {
-  accessToken: string;
-  userId: string;
-  accountId: string;
-  bankId: string;
-  fundingSourceUrl: string;
-  shareableId: string;
-}
-
-declare interface getBanksProps {
-  userId: string;
-}
-
-declare interface getBankProps {
-  documentId: string;
-}
-
-declare interface getBankByAccountIdProps {
-  accountId: string;
-}
+export {};

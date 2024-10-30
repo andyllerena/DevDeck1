@@ -1,0 +1,3581 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2024-10-30",
+    "totalProblems": 62,
+    "format": {
+      "input": "JSON object with problem-specific structure",
+      "output": "Expected return value",
+      "timeLimit": "Seconds allowed for execution",
+      "memoryLimit": "16MB"
+    }
+  },
+  "testCases": {
+    "1": {
+      "title": "Two Sum",
+      "description": "Find two numbers in the array that add up to the target",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [2, 7, 11, 15],
+            "target": 9
+          },
+          "output": [0, 1],
+          "explanation": "nums[0] + nums[1] = 2 + 7 = 9"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [3, 2, 4],
+            "target": 6
+          },
+          "output": [1, 2],
+          "explanation": "nums[1] + nums[2] = 2 + 4 = 6"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [3, 3],
+            "target": 6
+          },
+          "output": [0, 1],
+          "explanation": "nums[0] + nums[1] = 3 + 3 = 6"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [-1, -2, -3, -4, -5],
+            "target": -8
+          },
+          "output": [2, 4],
+          "explanation": "nums[2] + nums[4] = -3 + -5 = -8"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [1000, 2000, 3000],
+            "target": 5000
+          },
+          "output": [1, 2],
+          "explanation": "nums[1] + nums[2] = 2000 + 3000 = 5000"
+        }
+      ],
+      "constraints": {
+        "2 <= nums.length <= 104": true,
+        "-109 <= nums[i] <= 109": true,
+        "-109 <= target <= 109": true
+      }
+    },
+    "2": {
+      "title": "Contains Duplicate",
+      "description": "Determine if array contains any duplicate numbers",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [1, 2, 3, 1]
+          },
+          "output": true,
+          "explanation": "1 appears twice"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [1, 2, 3, 4]
+          },
+          "output": false,
+          "explanation": "All numbers are unique"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
+          },
+          "output": true,
+          "explanation": "Multiple numbers appear more than once"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": []
+          },
+          "output": false,
+          "explanation": "Empty array has no duplicates"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [-1, -1, 2, 2]
+          },
+          "output": true,
+          "explanation": "Negative numbers can be duplicates"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 105": true,
+        "-109 <= nums[i] <= 109": true
+      }
+    },
+    "3": {
+      "title": "Valid Anagram",
+      "description": "Determine if two strings are anagrams",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "anagram",
+            "t": "nagaram"
+          },
+          "output": true,
+          "explanation": "Same letters used in different order"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "rat",
+            "t": "car"
+          },
+          "output": false,
+          "explanation": "Different letters used"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "",
+            "t": ""
+          },
+          "output": true,
+          "explanation": "Empty strings are anagrams"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "aacc",
+            "t": "ccac"
+          },
+          "output": false,
+          "explanation": "Different frequency of letters"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "hello",
+            "t": "world"
+          },
+          "output": false,
+          "explanation": "Different letters, same length"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length, t.length <= 5 * 104": true,
+        "s and t consist of lowercase English letters": true
+      }
+    },
+    "4": {
+      "title": "Group Anagrams",
+      "description": "Group strings that are anagrams of each other",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "strs": ["eat", "tea", "tan", "ate", "nat", "bat"]
+          },
+          "output": [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]],
+          "explanation": "Words with same letters grouped together"
+        },
+        {
+          "id": 2,
+          "input": {
+            "strs": [""]
+          },
+          "output": [[""]],
+          "explanation": "Single empty string"
+        },
+        {
+          "id": 3,
+          "input": {
+            "strs": ["a"]
+          },
+          "output": [["a"]],
+          "explanation": "Single character"
+        },
+        {
+          "id": 4,
+          "input": {
+            "strs": ["", "b", ""]
+          },
+          "output": [["", ""], ["b"]],
+          "explanation": "Multiple empty strings with other strings"
+        },
+        {
+          "id": 5,
+          "input": {
+            "strs": ["abc", "def", "ghi"]
+          },
+          "output": [["abc"], ["def"], ["ghi"]],
+          "explanation": "No anagrams present"
+        }
+      ],
+      "constraints": {
+        "1 <= strs.length <= 104": true,
+        "0 <= strs[i].length <= 100": true,
+        "strs[i] consists of lowercase English letters": true
+      }
+    },
+    "5": {
+      "title": "Top K Frequent Elements",
+      "description": "Find the k most frequent elements",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [1, 1, 1, 2, 2, 3],
+            "k": 2
+          },
+          "output": [1, 2],
+          "explanation": "1 appears three times, 2 appears twice"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [1],
+            "k": 1
+          },
+          "output": [1],
+          "explanation": "Single element array"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [1, 2, 3, 1],
+            "k": 1
+          },
+          "output": [1],
+          "explanation": "1 is most frequent"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [-1, -1, 2, 2, 3],
+            "k": 2
+          },
+          "output": [-1, 2],
+          "explanation": "Negative numbers included"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [4, 4, 4, 4, 4],
+            "k": 1
+          },
+          "output": [4],
+          "explanation": "Single number repeated"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 105": true,
+        "k is in range [1, number of unique elements]": true,
+        "-104 <= nums[i] <= 104": true
+      }
+    },
+    "6": {
+      "title": "Product of Array Except Self",
+      "description": "Return array where each element is product of all numbers except self",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [1, 2, 3, 4]
+          },
+          "output": [24, 12, 8, 6],
+          "explanation": "For index 0: 2*3*4=24, index 1: 1*3*4=12, etc."
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [-1, 1, 0, -3, 3]
+          },
+          "output": [0, 0, 9, 0, 0],
+          "explanation": "Array with zero produces mostly zeros"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [0, 0, 0, 0]
+          },
+          "output": [0, 0, 0, 0],
+          "explanation": "All zeros case"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [2, 2, 2, 2]
+          },
+          "output": [8, 8, 8, 8],
+          "explanation": "All same numbers"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [-1, -1, 2, -1]
+          },
+          "output": [-2, -2, 1, -2],
+          "explanation": "Negative numbers included"
+        }
+      ],
+      "constraints": {
+        "2 <= nums.length <= 105": true,
+        "-30 <= nums[i] <= 30": true,
+        "The product of any prefix or suffix fits in a 32-bit integer": true
+      }
+    },
+    "7": {
+      "title": "Encode and Decode Strings",
+      "description": "Design algorithm to encode and decode list of strings",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "strs": ["Hello", "World"]
+          },
+          "encoded": "5#Hello5#World",
+          "decoded": ["Hello", "World"],
+          "explanation": "Length prefix encoding"
+        },
+        {
+          "id": 2,
+          "input": {
+            "strs": [""]
+          },
+          "encoded": "0#",
+          "decoded": [""],
+          "explanation": "Empty string encoding"
+        },
+        {
+          "id": 3,
+          "input": {
+            "strs": ["Hello", "World", "#"]
+          },
+          "encoded": "5#Hello5#World1##",
+          "decoded": ["Hello", "World", "#"],
+          "explanation": "Handle delimiter in string"
+        },
+        {
+          "id": 4,
+          "input": {
+            "strs": ["a", "b", "c"]
+          },
+          "encoded": "1#a1#b1#c",
+          "decoded": ["a", "b", "c"],
+          "explanation": "Single character strings"
+        },
+        {
+          "id": 5,
+          "input": {
+            "strs": ["Hello#5#World"]
+          },
+          "encoded": "12#Hello#5#World",
+          "decoded": ["Hello#5#World"],
+          "explanation": "String containing encoding characters"
+        }
+      ],
+      "constraints": {
+        "0 <= strs.length <= 200": true,
+        "0 <= strs[i].length <= 200": true,
+        "strs[i] contains any possible characters out of 256 valid ASCII characters": true
+      }
+    },
+    "8": {
+      "title": "Longest Consecutive Sequence",
+      "description": "Find length of longest consecutive elements sequence",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [100, 4, 200, 1, 3, 2]
+          },
+          "output": 4,
+          "explanation": "The sequence 1,2,3,4 has length 4"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+          },
+          "output": 9,
+          "explanation": "The sequence 0,1,2,3,4,5,6,7,8 has length 9"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": []
+          },
+          "output": 0,
+          "explanation": "Empty array has no sequence"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [1, 1, 1, 1]
+          },
+          "output": 1,
+          "explanation": "Duplicates count as one number"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [-5, -4, -3, -2, -1]
+          },
+          "output": 5,
+          "explanation": "Negative consecutive sequence"
+        }
+      ],
+      "constraints": {
+        "0 <= nums.length <= 105": true,
+        "-109 <= nums[i] <= 109": true
+      }
+    },
+    "9": {
+      "title": "Valid Palindrome",
+      "description": "Determine if string is palindrome considering only alphanumeric",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "A man, a plan, a canal: Panama"
+          },
+          "output": true,
+          "explanation": "amanaplanacanalpanama is palindrome"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "race a car"
+          },
+          "output": false,
+          "explanation": "raceacar is not palindrome"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": " "
+          },
+          "output": true,
+          "explanation": "Empty string is palindrome"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "12321"
+          },
+          "output": true,
+          "explanation": "Numeric palindrome"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "0P"
+          },
+          "output": false,
+          "explanation": "Case insensitive comparison"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 2 * 105": true,
+        "s consists only of printable ASCII characters": true
+      }
+    },
+    "10": {
+      "title": "3Sum",
+      "description": "Find all unique triplets that sum to zero",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [-1, 0, 1, 2, -1, -4]
+          },
+          "output": [
+            [-1, -1, 2],
+            [-1, 0, 1]
+          ],
+          "explanation": "Two unique triplets sum to zero"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": []
+          },
+          "output": [],
+          "explanation": "Empty array has no triplets"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [0]
+          },
+          "output": [],
+          "explanation": "Too few elements for triplet"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [0, 0, 0]
+          },
+          "output": [[0, 0, 0]],
+          "explanation": "All zeros is valid triplet"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [-2, 0, 1, 1, 2]
+          },
+          "output": [
+            [-2, 0, 2],
+            [-2, 1, 1]
+          ],
+          "explanation": "Multiple solutions with same numbers"
+        }
+      ],
+      "constraints": {
+        "0 <= nums.length <= 3000": true,
+        "-105 <= nums[i] <= 105": true
+      }
+    },
+    "11": {
+      "title": "Container With Most Water",
+      "description": "Find two lines that together with x-axis forms container with most water",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "height": [1, 8, 6, 2, 5, 4, 8, 3, 7]
+          },
+          "output": 49,
+          "explanation": "Container between indices 1 and 8 with height 7"
+        },
+        {
+          "id": 2,
+          "input": {
+            "height": [1, 1]
+          },
+          "output": 1,
+          "explanation": "Minimum case with two lines"
+        },
+        {
+          "id": 3,
+          "input": {
+            "height": [4, 3, 2, 1, 4]
+          },
+          "output": 16,
+          "explanation": "Same height at edges"
+        },
+        {
+          "id": 4,
+          "input": {
+            "height": [1, 2, 4, 3]
+          },
+          "output": 4,
+          "explanation": "Taller middle elements"
+        },
+        {
+          "id": 5,
+          "input": {
+            "height": [2, 3, 4, 5, 18, 17, 6]
+          },
+          "output": 17,
+          "explanation": "Peak heights in middle"
+        }
+      ],
+      "constraints": {
+        "n == height.length": true,
+        "2 <= n <= 105": true,
+        "0 <= height[i] <= 104": true
+      }
+    },
+    "12": {
+      "title": "Best Time to Buy and Sell Stock",
+      "description": "Find maximum profit from buying and selling stock once",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "prices": [7, 1, 5, 3, 6, 4]
+          },
+          "output": 5,
+          "explanation": "Buy at 1, sell at 6"
+        },
+        {
+          "id": 2,
+          "input": {
+            "prices": [7, 6, 4, 3, 1]
+          },
+          "output": 0,
+          "explanation": "No profit possible"
+        },
+        {
+          "id": 3,
+          "input": {
+            "prices": [2, 4, 1]
+          },
+          "output": 2,
+          "explanation": "Buy at 2, sell at 4"
+        },
+        {
+          "id": 4,
+          "input": {
+            "prices": [1, 2]
+          },
+          "output": 1,
+          "explanation": "Minimum case with profit"
+        },
+        {
+          "id": 5,
+          "input": {
+            "prices": [3, 3, 3, 3]
+          },
+          "output": 0,
+          "explanation": "No price change"
+        }
+      ],
+      "constraints": {
+        "1 <= prices.length <= 105": true,
+        "0 <= prices[i] <= 104": true
+      }
+    },
+    "13": {
+      "title": "Longest Substring Without Repeating Characters",
+      "description": "Find length of longest substring without repeating characters",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "abcabcbb"
+          },
+          "output": 3,
+          "explanation": "The answer is abc, with length 3"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "bbbbb"
+          },
+          "output": 1,
+          "explanation": "Single character is longest"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "pwwkew"
+          },
+          "output": 3,
+          "explanation": "wke is the longest substring"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": ""
+          },
+          "output": 0,
+          "explanation": "Empty string case"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "aab"
+          },
+          "output": 2,
+          "explanation": "ab is the longest substring"
+        }
+      ],
+      "constraints": {
+        "0 <= s.length <= 5 * 104": true,
+        "s consists of English letters, digits, symbols and spaces": true
+      }
+    },
+    "14": {
+      "title": "Longest Repeating Character Replacement",
+      "description": "Find longest substring with same letter after k replacements",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "ABAB",
+            "k": 2
+          },
+          "output": 4,
+          "explanation": "Replace both As with B to get all Bs"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "AABABBA",
+            "k": 1
+          },
+          "output": 4,
+          "explanation": "Replace one letter to get AABA"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "AAAA",
+            "k": 2
+          },
+          "output": 4,
+          "explanation": "Already all same character"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "ABCD",
+            "k": 1
+          },
+          "output": 2,
+          "explanation": "Can make any two adjacent same"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "AABABBBA",
+            "k": 1
+          },
+          "output": 5,
+          "explanation": "Replace one B to get AABA"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 105": true,
+        "s consists of only uppercase English letters": true,
+        "0 <= k <= s.length": true
+      }
+    },
+    "15": {
+      "title": "Minimum Window Substring",
+      "description": "Find minimum window substring containing all characters of t",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "ADOBECODEBANC",
+            "t": "ABC"
+          },
+          "output": "BANC",
+          "explanation": "Smallest window containing A, B, and C"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "a",
+            "t": "a"
+          },
+          "output": "a",
+          "explanation": "Single character match"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "a",
+            "t": "aa"
+          },
+          "output": "",
+          "explanation": "No valid window exists"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "ABAACBAB",
+            "t": "ABC"
+          },
+          "output": "ACB",
+          "explanation": "Multiple possible windows, return shortest"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "ab",
+            "t": "b"
+          },
+          "output": "b",
+          "explanation": "Single character in longer string"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length, t.length <= 105": true,
+        "s and t consist of uppercase and lowercase English letters": true
+      }
+    },
+    "16": {
+      "title": "Valid Parentheses",
+      "description": "Determine if string has valid parentheses ordering",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "()"
+          },
+          "output": true,
+          "explanation": "Simple matching pair"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "()[]{}"
+          },
+          "output": true,
+          "explanation": "Multiple different pairs"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "(]"
+          },
+          "output": false,
+          "explanation": "Mismatched brackets"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "([)]"
+          },
+          "output": false,
+          "explanation": "Incorrectly ordered pairs"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "{[]}"
+          },
+          "output": true,
+          "explanation": "Nested brackets"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 104": true,
+        "s consists of parentheses only '()[]{}": true
+      }
+    },
+    "17": {
+      "title": "Number of 1 Bits",
+      "description": "Count the number of '1' bits in an unsigned integer",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "n": "00000000000000000000000000001011"
+          },
+          "output": 3,
+          "explanation": "Three 1's in binary representation"
+        },
+        {
+          "id": 2,
+          "input": {
+            "n": "00000000000000000000000010000000"
+          },
+          "output": 1,
+          "explanation": "One 1 in binary representation"
+        },
+        {
+          "id": 3,
+          "input": {
+            "n": "11111111111111111111111111111101"
+          },
+          "output": 31,
+          "explanation": "Thirty one 1's in binary"
+        },
+        {
+          "id": 4,
+          "input": {
+            "n": "00000000000000000000000000000000"
+          },
+          "output": 0,
+          "explanation": "All zeros"
+        },
+        {
+          "id": 5,
+          "input": {
+            "n": "11111111111111111111111111111111"
+          },
+          "output": 32,
+          "explanation": "All ones"
+        }
+      ],
+      "constraints": {
+        "The input must be a binary string of length 32": true
+      }
+    },
+    "18": {
+      "title": "Counting Bits",
+      "description": "Return array counting number of 1's in binary representation of each number",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "n": 2
+          },
+          "output": [0, 1, 1],
+          "explanation": "0 -> 0, 1 -> 1, 2 -> 10"
+        },
+        {
+          "id": 2,
+          "input": {
+            "n": 5
+          },
+          "output": [0, 1, 1, 2, 1, 2],
+          "explanation": "0->0, 1->1, 2->10, 3->11, 4->100, 5->101"
+        },
+        {
+          "id": 3,
+          "input": {
+            "n": 0
+          },
+          "output": [0],
+          "explanation": "Only zero case"
+        },
+        {
+          "id": 4,
+          "input": {
+            "n": 1
+          },
+          "output": [0, 1],
+          "explanation": "Binary 0 and 1"
+        },
+        {
+          "id": 5,
+          "input": {
+            "n": 4
+          },
+          "output": [0, 1, 1, 2, 1],
+          "explanation": "0->0, 1->1, 2->10, 3->11, 4->100"
+        }
+      ],
+      "constraints": {
+        "0 <= n <= 105": true
+      }
+    },
+    "19": {
+      "title": "Missing Number",
+      "description": "Find missing number in range [0,n] from array",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [3, 0, 1]
+          },
+          "output": 2,
+          "explanation": "2 is missing from [0,1,2,3]"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [0, 1]
+          },
+          "output": 2,
+          "explanation": "2 is missing from [0,1,2]"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [9, 6, 4, 2, 3, 5, 7, 0, 1]
+          },
+          "output": 8,
+          "explanation": "8 is missing from [0-9]"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [0]
+          },
+          "output": 1,
+          "explanation": "1 is missing from [0,1]"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [1]
+          },
+          "output": 0,
+          "explanation": "0 is missing from [0,1]"
+        }
+      ],
+      "constraints": {
+        "n == nums.length": true,
+        "1 <= n <= 104": true,
+        "0 <= nums[i] <= n": true,
+        "All numbers are unique": true
+      }
+    },
+    "20": {
+      "title": "Reverse Bits",
+      "description": "Reverse bits of a given 32 bits unsigned integer",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "n": "00000010100101000001111010011100"
+          },
+          "output": "00111001011110000010100101000000",
+          "explanation": "The input binary string is reversed"
+        },
+        {
+          "id": 2,
+          "input": {
+            "n": "11111111111111111111111111111101"
+          },
+          "output": "10111111111111111111111111111111",
+          "explanation": "Reverse with many 1's"
+        },
+        {
+          "id": 3,
+          "input": {
+            "n": "00000000000000000000000000000000"
+          },
+          "output": "00000000000000000000000000000000",
+          "explanation": "All zeros stays same when reversed"
+        },
+        {
+          "id": 4,
+          "input": {
+            "n": "11111111111111111111111111111111"
+          },
+          "output": "11111111111111111111111111111111",
+          "explanation": "All ones stays same when reversed"
+        },
+        {
+          "id": 5,
+          "input": {
+            "n": "10000000000000000000000000000000"
+          },
+          "output": "00000000000000000000000000000001",
+          "explanation": "Single 1 bit moves from start to end"
+        }
+      ],
+      "constraints": {
+        "The input must be a binary string of length 32": true
+      }
+    },
+    "21": {
+      "title": "Sum of Two Integers",
+      "description": "Calculate sum without using + or - operators",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "a": 1,
+            "b": 2
+          },
+          "output": 3,
+          "explanation": "Simple positive numbers sum"
+        },
+        {
+          "id": 2,
+          "input": {
+            "a": -2,
+            "b": 3
+          },
+          "output": 1,
+          "explanation": "Positive and negative numbers"
+        },
+        {
+          "id": 3,
+          "input": {
+            "a": -1,
+            "b": -1
+          },
+          "output": -2,
+          "explanation": "Negative numbers sum"
+        },
+        {
+          "id": 4,
+          "input": {
+            "a": 0,
+            "b": 5
+          },
+          "output": 5,
+          "explanation": "Sum with zero"
+        },
+        {
+          "id": 5,
+          "input": {
+            "a": 10,
+            "b": -10
+          },
+          "output": 0,
+          "explanation": "Numbers that sum to zero"
+        }
+      ],
+      "constraints": {
+        "-1000 <= a, b <= 1000": true
+      }
+    },
+    "22": {
+      "title": "Reverse Linked List",
+      "description": "Reverse a singly linked list",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "head": [1, 2, 3, 4, 5]
+          },
+          "output": [5, 4, 3, 2, 1],
+          "explanation": "Standard case reversal"
+        },
+        {
+          "id": 2,
+          "input": {
+            "head": [1, 2]
+          },
+          "output": [2, 1],
+          "explanation": "Two node reversal"
+        },
+        {
+          "id": 3,
+          "input": {
+            "head": []
+          },
+          "output": [],
+          "explanation": "Empty list remains empty"
+        },
+        {
+          "id": 4,
+          "input": {
+            "head": [1]
+          },
+          "output": [1],
+          "explanation": "Single node remains same"
+        },
+        {
+          "id": 5,
+          "input": {
+            "head": [1, 1, 2, 2, 3]
+          },
+          "output": [3, 2, 2, 1, 1],
+          "explanation": "Reversal with duplicate values"
+        }
+      ],
+      "constraints": {
+        "0 <= number of nodes <= 5000": true,
+        "-5000 <= Node.val <= 5000": true
+      }
+    },
+    "23": {
+      "title": "Merge Two Sorted Lists",
+      "description": "Merge two sorted linked lists into one sorted list",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "list1": [1, 2, 4],
+            "list2": [1, 3, 4]
+          },
+          "output": [1, 1, 2, 3, 4, 4],
+          "explanation": "Merged maintaining sort order"
+        },
+        {
+          "id": 2,
+          "input": {
+            "list1": [],
+            "list2": []
+          },
+          "output": [],
+          "explanation": "Both empty lists"
+        },
+        {
+          "id": 3,
+          "input": {
+            "list1": [],
+            "list2": [0]
+          },
+          "output": [0],
+          "explanation": "One empty list"
+        },
+        {
+          "id": 4,
+          "input": {
+            "list1": [1, 3, 5],
+            "list2": [2, 4, 6]
+          },
+          "output": [1, 2, 3, 4, 5, 6],
+          "explanation": "Alternating merge"
+        },
+        {
+          "id": 5,
+          "input": {
+            "list1": [1, 1, 1],
+            "list2": [2, 2, 2]
+          },
+          "output": [1, 1, 1, 2, 2, 2],
+          "explanation": "Merge with duplicates"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in both lists is in range [0, 50]": true,
+        "-100 <= Node.val <= 100": true,
+        "Both lists are sorted in non-decreasing order": true
+      }
+    },
+    "24": {
+      "title": "Reorder List",
+      "description": "Reorder list to L0 → Ln → L1 → Ln-1 → L2 → Ln-2 →...",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "head": [1, 2, 3, 4]
+          },
+          "output": [1, 4, 2, 3],
+          "explanation": "Even length list reorder"
+        },
+        {
+          "id": 2,
+          "input": {
+            "head": [1, 2, 3, 4, 5]
+          },
+          "output": [1, 5, 2, 4, 3],
+          "explanation": "Odd length list reorder"
+        },
+        {
+          "id": 3,
+          "input": {
+            "head": [1]
+          },
+          "output": [1],
+          "explanation": "Single node remains unchanged"
+        },
+        {
+          "id": 4,
+          "input": {
+            "head": [1, 2]
+          },
+          "output": [1, 2],
+          "explanation": "Two nodes remain unchanged"
+        },
+        {
+          "id": 5,
+          "input": {
+            "head": [1, 2, 3]
+          },
+          "output": [1, 3, 2],
+          "explanation": "Three node reorder"
+        }
+      ],
+      "constraints": {
+        "Number of nodes is in range [1, 5 × 104]": true,
+        "1 <= Node.val <= 1000": true
+      }
+    },
+    "25": {
+      "title": "Remove Nth Node From End of List",
+      "description": "Remove nth node from end of list and return its head",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "head": [1, 2, 3, 4, 5],
+            "n": 2
+          },
+          "output": [1, 2, 3, 5],
+          "explanation": "Remove 2nd node from end"
+        },
+        {
+          "id": 2,
+          "input": {
+            "head": [1],
+            "n": 1
+          },
+          "output": [],
+          "explanation": "Remove only node"
+        },
+        {
+          "id": 3,
+          "input": {
+            "head": [1, 2],
+            "n": 1
+          },
+          "output": [1],
+          "explanation": "Remove last node"
+        },
+        {
+          "id": 4,
+          "input": {
+            "head": [1, 2],
+            "n": 2
+          },
+          "output": [2],
+          "explanation": "Remove first node"
+        },
+        {
+          "id": 5,
+          "input": {
+            "head": [1, 2, 3],
+            "n": 3
+          },
+          "output": [2, 3],
+          "explanation": "Remove first node of three"
+        }
+      ],
+      "constraints": {
+        "Number of nodes is sz": true,
+        "1 <= sz <= 30": true,
+        "0 <= Node.val <= 100": true,
+        "1 <= n <= sz": true
+      }
+    },
+    "26": {
+      "title": "Detect Cycle in a Linked List",
+      "description": "Determine if linked list has a cycle",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "head": [3, 2, 0, -4],
+            "pos": 1
+          },
+          "output": true,
+          "explanation": "Tail connects to node at position 1"
+        },
+        {
+          "id": 2,
+          "input": {
+            "head": [1, 2],
+            "pos": 0
+          },
+          "output": true,
+          "explanation": "Tail connects to head"
+        },
+        {
+          "id": 3,
+          "input": {
+            "head": [1],
+            "pos": -1
+          },
+          "output": false,
+          "explanation": "Single node without cycle"
+        },
+        {
+          "id": 4,
+          "input": {
+            "head": [1, 2, 3, 4],
+            "pos": -1
+          },
+          "output": false,
+          "explanation": "Linear list without cycle"
+        },
+        {
+          "id": 5,
+          "input": {
+            "head": [1, 2, 3, 4, 5],
+            "pos": 4
+          },
+          "output": true,
+          "explanation": "Cycle at last node"
+        }
+      ],
+      "constraints": {
+        "Number of nodes is in range [0, 104]": true,
+        "-105 <= Node.val <= 105": true,
+        "pos is -1 or a valid index": true
+      }
+    },
+    "27": {
+      "title": "Merge K Sorted Lists",
+      "description": "Merge k sorted linked lists into one sorted list",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "lists": [
+              [1, 4, 5],
+              [1, 3, 4],
+              [2, 6]
+            ]
+          },
+          "output": [1, 1, 2, 3, 4, 4, 5, 6],
+          "explanation": "Merge multiple lists maintaining order"
+        },
+        {
+          "id": 2,
+          "input": {
+            "lists": []
+          },
+          "output": [],
+          "explanation": "Empty input array"
+        },
+        {
+          "id": 3,
+          "input": {
+            "lists": [[]]
+          },
+          "output": [],
+          "explanation": "Single empty list"
+        },
+        {
+          "id": 4,
+          "input": {
+            "lists": [[1], [2], [3]]
+          },
+          "output": [1, 2, 3],
+          "explanation": "Single element lists"
+        },
+        {
+          "id": 5,
+          "input": {
+            "lists": [
+              [1, 1, 1],
+              [1, 1, 1]
+            ]
+          },
+          "output": [1, 1, 1, 1, 1, 1],
+          "explanation": "Lists with duplicate values"
+        }
+      ],
+      "constraints": {
+        "k == lists.length": true,
+        "0 <= k <= 104": true,
+        "0 <= lists[i].length <= 500": true,
+        "-104 <= lists[i][j] <= 104": true,
+        "lists[i] is sorted in ascending order": true
+      }
+    },
+    "28": {
+      "title": "Maximum Depth of Binary Tree",
+      "description": "Find the maximum depth (height) of binary tree",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [3, 9, 20, null, null, 15, 7]
+          },
+          "output": 3,
+          "explanation": "Depth is 3 (path: 3->20->7)"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [1, null, 2]
+          },
+          "output": 2,
+          "explanation": "Right-skewed tree of depth 2"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": []
+          },
+          "output": 0,
+          "explanation": "Empty tree has depth 0"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [1]
+          },
+          "output": 1,
+          "explanation": "Single node has depth 1"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [1, 2, 3, 4, 5, 6, 7]
+          },
+          "output": 3,
+          "explanation": "Complete binary tree"
+        }
+      ],
+      "constraints": {
+        "Number of nodes is in range [0, 104]": true,
+        "-100 <= Node.val <= 100": true
+      }
+    },
+    "29": {
+      "title": "Same Tree",
+      "description": "Determine if two binary trees are identical",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "p": [1, 2, 3],
+            "q": [1, 2, 3]
+          },
+          "output": true,
+          "explanation": "Identical structures and values"
+        },
+        {
+          "id": 2,
+          "input": {
+            "p": [1, 2],
+            "q": [1, null, 2]
+          },
+          "output": false,
+          "explanation": "Different structures"
+        },
+        {
+          "id": 3,
+          "input": {
+            "p": [1, 2, 1],
+            "q": [1, 1, 2]
+          },
+          "output": false,
+          "explanation": "Same structure, different values"
+        },
+        {
+          "id": 4,
+          "input": {
+            "p": [],
+            "q": []
+          },
+          "output": true,
+          "explanation": "Both empty trees"
+        },
+        {
+          "id": 5,
+          "input": {
+            "p": [1],
+            "q": [1]
+          },
+          "output": true,
+          "explanation": "Single node trees"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in both trees is in range [0, 100]": true,
+        "-104 <= Node.val <= 104": true
+      }
+    },
+    "30": {
+      "title": "Invert Binary Tree",
+      "description": "Mirror the binary tree by swapping left and right children",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [4, 2, 7, 1, 3, 6, 9]
+          },
+          "output": [4, 7, 2, 9, 6, 3, 1],
+          "explanation": "Complete tree inversion"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [2, 1, 3]
+          },
+          "output": [2, 3, 1],
+          "explanation": "Simple three node tree"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": []
+          },
+          "output": [],
+          "explanation": "Empty tree remains empty"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [1]
+          },
+          "output": [1],
+          "explanation": "Single node remains same"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [1, 2]
+          },
+          "output": [1, null, 2],
+          "explanation": "Left child becomes right child"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in range [0, 100]": true,
+        "-100 <= Node.val <= 100": true
+      }
+    },
+    "31": {
+      "title": "Binary Tree Maximum Path Sum",
+      "description": "Find path with maximum sum in binary tree",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [1, 2, 3]
+          },
+          "output": 6,
+          "explanation": "Path 2->1->3 gives maximum sum"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [-10, 9, 20, null, null, 15, 7]
+          },
+          "output": 42,
+          "explanation": "Path 15->20->7 gives maximum sum"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": [-3]
+          },
+          "output": -3,
+          "explanation": "Single node path"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [2, -1, -2]
+          },
+          "output": 2,
+          "explanation": "Single node is optimal path"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [1, -2, 3]
+          },
+          "output": 4,
+          "explanation": "Path 1->3 is optimal"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in range [1, 3 * 104]": true,
+        "-1000 <= Node.val <= 1000": true
+      }
+    },
+    "32": {
+      "title": "Binary Tree Level Order Traversal",
+      "description": "Return level order traversal of binary tree nodes",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [3, 9, 20, null, null, 15, 7]
+          },
+          "output": [[3], [9, 20], [15, 7]],
+          "explanation": "Nodes grouped by level"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [1]
+          },
+          "output": [[1]],
+          "explanation": "Single node tree"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": []
+          },
+          "output": [],
+          "explanation": "Empty tree"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [1, 2, 3, 4, 5]
+          },
+          "output": [[1], [2, 3], [4, 5]],
+          "explanation": "Complete binary tree traversal"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [1, null, 2]
+          },
+          "output": [[1], [2]],
+          "explanation": "Tree with missing left child"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in range [0, 2000]": true,
+        "-1000 <= Node.val <= 1000": true
+      }
+    },
+    "33": {
+      "title": "Serialize and Deserialize Binary Tree",
+      "description": "Design algorithm to serialize and deserialize binary tree",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [1, 2, 3, null, null, 4, 5]
+          },
+          "serialized": "1,2,3,null,null,4,5",
+          "deserialized": [1, 2, 3, null, null, 4, 5],
+          "explanation": "Tree with multiple levels"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": []
+          },
+          "serialized": "",
+          "deserialized": [],
+          "explanation": "Empty tree"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": [1, null, 2]
+          },
+          "serialized": "1,null,2",
+          "deserialized": [1, null, 2],
+          "explanation": "Tree with missing left child"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [1, 2, 3, 4]
+          },
+          "serialized": "1,2,3,4",
+          "deserialized": [1, 2, 3, 4],
+          "explanation": "Incomplete tree"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [1, 2, 3, null, null, null, 4]
+          },
+          "serialized": "1,2,3,null,null,null,4",
+          "deserialized": [1, 2, 3, null, null, null, 4],
+          "explanation": "Tree with nulls"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in range [0, 104]": true,
+        "-1000 <= Node.val <= 1000": true
+      }
+    },
+    "34": {
+      "title": "Subtree of Another Tree",
+      "description": "Check if binary tree is subtree of another binary tree",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [3, 4, 5, 1, 2],
+            "subRoot": [4, 1, 2]
+          },
+          "output": true,
+          "explanation": "subRoot matches subtree"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [3, 4, 5, 1, 2, null, null, null, null, 0],
+            "subRoot": [4, 1, 2]
+          },
+          "output": false,
+          "explanation": "Additional node prevents match"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": [1],
+            "subRoot": [1]
+          },
+          "output": true,
+          "explanation": "Single node match"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [1, 2, 3],
+            "subRoot": [2]
+          },
+          "output": true,
+          "explanation": "Left subtree matches"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [1, 2, 3],
+            "subRoot": [1, 2]
+          },
+          "output": false,
+          "explanation": "Partial match not sufficient"
+        }
+      ],
+      "constraints": {
+        "root tree nodes in range [1, 2000]": true,
+        "subRoot tree nodes in range [1, 1000]": true,
+        "-104 <= Node.val <= 104": true
+      }
+    },
+    "35": {
+      "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+      "description": "Build binary tree from preorder and inorder traversal arrays",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "preorder": [3, 9, 20, 15, 7],
+            "inorder": [9, 3, 15, 20, 7]
+          },
+          "output": [3, 9, 20, null, null, 15, 7],
+          "explanation": "Standard tree construction"
+        },
+        {
+          "id": 2,
+          "input": {
+            "preorder": [1],
+            "inorder": [1]
+          },
+          "output": [1],
+          "explanation": "Single node tree"
+        },
+        {
+          "id": 3,
+          "input": {
+            "preorder": [1, 2, 3],
+            "inorder": [3, 2, 1]
+          },
+          "output": [1, 2, null, 3],
+          "explanation": "Left-skewed tree"
+        },
+        {
+          "id": 4,
+          "input": {
+            "preorder": [1, 2, 3],
+            "inorder": [1, 2, 3]
+          },
+          "output": [1, null, 2, null, 3],
+          "explanation": "Right-skewed tree"
+        },
+        {
+          "id": 5,
+          "input": {
+            "preorder": [1, 2],
+            "inorder": [2, 1]
+          },
+          "output": [1, 2],
+          "explanation": "Simple two-node tree"
+        }
+      ],
+      "constraints": {
+        "1 <= preorder.length <= 3000": true,
+        "inorder.length == preorder.length": true,
+        "-3000 <= preorder[i] <= 3000": true
+      }
+    },
+    "36": {
+      "title": "Implement Trie (Prefix Tree)",
+      "description": "Implement a trie with insert, search and startsWith methods",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "operations": [
+              "Trie",
+              "insert",
+              "search",
+              "search",
+              "startsWith",
+              "insert",
+              "search"
+            ],
+            "values": [
+              [],
+              ["apple"],
+              ["apple"],
+              ["app"],
+              ["app"],
+              ["app"],
+              ["app"]
+            ]
+          },
+          "output": [null, null, true, false, true, null, true],
+          "explanation": "Standard trie operations"
+        },
+        {
+          "id": 2,
+          "input": {
+            "operations": ["Trie", "insert", "search", "startsWith"],
+            "values": [[], ["hello"], ["hell"], ["hell"]]
+          },
+          "output": [null, null, false, true],
+          "explanation": "Prefix vs complete word"
+        },
+        {
+          "id": 3,
+          "input": {
+            "operations": ["Trie", "insert", "insert", "search"],
+            "values": [[], ["a"], ["a"], ["a"]]
+          },
+          "output": [null, null, null, true],
+          "explanation": "Single character operations"
+        },
+        {
+          "id": 4,
+          "input": {
+            "operations": ["Trie", "search", "startsWith"],
+            "values": [[], ["a"], ["a"]]
+          },
+          "output": [null, false, false],
+          "explanation": "Empty trie operations"
+        },
+        {
+          "id": 5,
+          "input": {
+            "operations": [
+              "Trie",
+              "insert",
+              "search",
+              "startsWith",
+              "startsWith"
+            ],
+            "values": [[], ["dog"], ["dog"], ["do"], ["d"]]
+          },
+          "output": [null, null, true, true, true],
+          "explanation": "Multiple prefix lengths"
+        }
+      ],
+      "constraints": {
+        "1 <= word.length, prefix.length <= 2000": true,
+        "word and prefix consist only of lowercase English letters": true
+      }
+    },
+    "37": {
+      "title": "Design Add and Search Words Data Structure",
+      "description": "Design data structure supporting adding and searching words with '.' wildcards",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "operations": [
+              "WordDictionary",
+              "addWord",
+              "addWord",
+              "search",
+              "search",
+              "search",
+              "search"
+            ],
+            "values": [[], ["bad"], ["dad"], ["pad"], ["bad"], [".ad"], ["b.."]]
+          },
+          "output": [null, null, null, false, true, true, true],
+          "explanation": "Basic operations with wildcards"
+        },
+        {
+          "id": 2,
+          "input": {
+            "operations": ["WordDictionary", "addWord", "search", "search"],
+            "values": [[], ["a"], ["."], ["a"]]
+          },
+          "output": [null, null, true, true],
+          "explanation": "Single character operations"
+        },
+        {
+          "id": 3,
+          "input": {
+            "operations": ["WordDictionary", "search"],
+            "values": [[], ["."]]
+          },
+          "output": [null, false],
+          "explanation": "Empty dictionary search"
+        },
+        {
+          "id": 4,
+          "input": {
+            "operations": ["WordDictionary", "addWord", "search"],
+            "values": [[], ["cat"], ["c.t"]]
+          },
+          "output": [null, null, true],
+          "explanation": "Middle character wildcard"
+        },
+        {
+          "id": 5,
+          "input": {
+            "operations": ["WordDictionary", "addWord", "search", "search"],
+            "values": [[], ["hello"], ["....o"], ["hell."]]
+          },
+          "output": [null, null, true, true],
+          "explanation": "Multiple wildcards"
+        }
+      ],
+      "constraints": {
+        "1 <= word.length <= 25": true,
+        "word consists of lowercase English letters and '.'": true,
+        "At most 104 calls will be made to addWord and search": true
+      }
+    },
+    "38": {
+      "title": "Word Search II",
+      "description": "Find all words in the board from given word list",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "board": [
+              ["o", "a", "a", "n"],
+              ["e", "t", "a", "e"],
+              ["i", "h", "k", "r"],
+              ["i", "f", "l", "v"]
+            ],
+            "words": ["oath", "pea", "eat", "rain"]
+          },
+          "output": ["eat", "oath"],
+          "explanation": "Can find 'eat' and 'oath' in board"
+        },
+        {
+          "id": 2,
+          "input": {
+            "board": [
+              ["a", "b"],
+              ["c", "d"]
+            ],
+            "words": ["abcd"]
+          },
+          "output": [],
+          "explanation": "Cannot find word that requires jumping"
+        },
+        {
+          "id": 3,
+          "input": {
+            "board": [["a"]],
+            "words": ["a"]
+          },
+          "output": ["a"],
+          "explanation": "Single cell board"
+        },
+        {
+          "id": 4,
+          "input": {
+            "board": [
+              ["a", "b"],
+              ["c", "d"]
+            ],
+            "words": ["a", "b", "c", "d"]
+          },
+          "output": ["a", "b", "c", "d"],
+          "explanation": "Single letter words"
+        },
+        {
+          "id": 5,
+          "input": {
+            "board": [
+              ["a", "a"],
+              ["a", "a"]
+            ],
+            "words": ["a", "aa", "aaa", "aaaa"]
+          },
+          "output": ["a", "aa", "aaa", "aaaa"],
+          "explanation": "Repeated character paths"
+        }
+      ],
+      "constraints": {
+        "m == board.length": true,
+        "n == board[i].length": true,
+        "1 <= m, n <= 12": true,
+        "1 <= words.length <= 3 * 104": true
+      }
+    },
+    "39": {
+      "title": "Find Median from Data Stream",
+      "description": "Design data structure that can find median from stream of numbers",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "operations": ["MedianFinder", "addNum", "addNum", "findMedian"],
+            "values": [[], [1], [2], []]
+          },
+          "output": [null, null, null, 1.5],
+          "explanation": "Median of [1,2] is 1.5"
+        },
+        {
+          "id": 2,
+          "input": {
+            "operations": [
+              "MedianFinder",
+              "addNum",
+              "findMedian",
+              "addNum",
+              "findMedian"
+            ],
+            "values": [[], [1], [], [2], []]
+          },
+          "output": [null, null, 1.0, null, 1.5],
+          "explanation": "Progressive median calculation"
+        },
+        {
+          "id": 3,
+          "input": {
+            "operations": [
+              "MedianFinder",
+              "addNum",
+              "addNum",
+              "addNum",
+              "findMedian"
+            ],
+            "values": [[], [1], [2], [3], []]
+          },
+          "output": [null, null, null, null, 2.0],
+          "explanation": "Median of odd count array"
+        },
+        {
+          "id": 4,
+          "input": {
+            "operations": [
+              "MedianFinder",
+              "addNum",
+              "addNum",
+              "addNum",
+              "addNum",
+              "findMedian"
+            ],
+            "values": [[], [5], [2], [1], [3], []]
+          },
+          "output": [null, null, null, null, null, 2.5],
+          "explanation": "Median with unsorted additions"
+        },
+        {
+          "id": 5,
+          "input": {
+            "operations": ["MedianFinder", "addNum", "findMedian"],
+            "values": [[], [1], []]
+          },
+          "output": [null, null, 1.0],
+          "explanation": "Single number median"
+        }
+      ],
+      "constraints": {
+        "-105 <= num <= 105": true,
+        "At most 5 * 104 calls will be made": true,
+        "There will be at least one element before findMedian is called": true
+      }
+    },
+    "40": {
+      "title": "Clone Graph",
+      "description": "Deep copy a connected undirected graph",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "adjList": [
+              [2, 4],
+              [1, 3],
+              [2, 4],
+              [1, 3]
+            ]
+          },
+          "output": [
+            [2, 4],
+            [1, 3],
+            [2, 4],
+            [1, 3]
+          ],
+          "explanation": "Square graph structure preserved"
+        },
+        {
+          "id": 2,
+          "input": {
+            "adjList": [[]]
+          },
+          "output": [[]],
+          "explanation": "Single node without edges"
+        },
+        {
+          "id": 3,
+          "input": {
+            "adjList": []
+          },
+          "output": [],
+          "explanation": "Empty graph"
+        },
+        {
+          "id": 4,
+          "input": {
+            "adjList": [[2], [1]]
+          },
+          "output": [[2], [1]],
+          "explanation": "Two nodes connected"
+        },
+        {
+          "id": 5,
+          "input": {
+            "adjList": [[2, 3, 4], [1], [1], [1]]
+          },
+          "output": [[2, 3, 4], [1], [1], [1]],
+          "explanation": "Star-shaped graph"
+        }
+      ],
+      "constraints": {
+        "Number of nodes in range [0, 100]": true,
+        "1 <= Node.val <= 100": true,
+        "Node.val is unique for each node": true
+      }
+    },
+    "41": {
+      "title": "Course Schedule",
+      "description": "Determine if it's possible to finish all courses given prerequisites",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "numCourses": 2,
+            "prerequisites": [[1, 0]]
+          },
+          "output": true,
+          "explanation": "Take course 0 then 1"
+        },
+        {
+          "id": 2,
+          "input": {
+            "numCourses": 2,
+            "prerequisites": [
+              [1, 0],
+              [0, 1]
+            ]
+          },
+          "output": false,
+          "explanation": "Circular dependency"
+        },
+        {
+          "id": 3,
+          "input": {
+            "numCourses": 3,
+            "prerequisites": [
+              [1, 0],
+              [2, 1]
+            ]
+          },
+          "output": true,
+          "explanation": "Linear dependency chain"
+        },
+        {
+          "id": 4,
+          "input": {
+            "numCourses": 4,
+            "prerequisites": [
+              [1, 0],
+              [2, 0],
+              [3, 1],
+              [3, 2]
+            ]
+          },
+          "output": true,
+          "explanation": "Multiple prerequisites possible"
+        },
+        {
+          "id": 5,
+          "input": {
+            "numCourses": 3,
+            "prerequisites": []
+          },
+          "output": true,
+          "explanation": "No prerequisites"
+        }
+      ],
+      "constraints": {
+        "1 <= numCourses <= 2000": true,
+        "0 <= prerequisites.length <= 5000": true,
+        "prerequisites[i].length == 2": true
+      }
+    },
+    "42": {
+      "title": "Pacific Atlantic Water Flow",
+      "description": "Find cells where water can flow to both Pacific and Atlantic oceans",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "heights": [
+              [1, 2, 2, 3, 5],
+              [3, 2, 3, 4, 4],
+              [2, 4, 5, 3, 1],
+              [6, 7, 1, 4, 5],
+              [5, 1, 1, 2, 4]
+            ]
+          },
+          "output": [
+            [0, 4],
+            [1, 3],
+            [1, 4],
+            [2, 2],
+            [3, 0],
+            [3, 1],
+            [4, 0]
+          ],
+          "explanation": "Points where water flows to both oceans"
+        },
+        {
+          "id": 2,
+          "input": {
+            "heights": [[1]]
+          },
+          "output": [[0, 0]],
+          "explanation": "Single cell flows to both"
+        },
+        {
+          "id": 3,
+          "input": {
+            "heights": [
+              [1, 1],
+              [1, 1]
+            ]
+          },
+          "output": [
+            [0, 0],
+            [0, 1],
+            [1, 0],
+            [1, 1]
+          ],
+          "explanation": "All cells flow to both"
+        },
+        {
+          "id": 4,
+          "input": {
+            "heights": [
+              [1, 2],
+              [3, 4]
+            ]
+          },
+          "output": [[1, 1]],
+          "explanation": "Only highest point flows to both"
+        },
+        {
+          "id": 5,
+          "input": {
+            "heights": [
+              [10, 10, 10],
+              [10, 1, 10],
+              [10, 10, 10]
+            ]
+          },
+          "output": [
+            [0, 0],
+            [0, 1],
+            [0, 2],
+            [1, 0],
+            [1, 2],
+            [2, 0],
+            [2, 1],
+            [2, 2]
+          ],
+          "explanation": "Border cells and higher elevations"
+        }
+      ],
+      "constraints": {
+        "m == heights.length": true,
+        "n == heights[i].length": true,
+        "1 <= m, n <= 200": true,
+        "0 <= heights[i][j] <= 105": true
+      }
+    },
+    "43": {
+      "title": "Number of Islands",
+      "description": "Count number of islands in 2D grid",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "grid": [
+              ["1", "1", "1", "1", "0"],
+              ["1", "1", "0", "1", "0"],
+              ["1", "1", "0", "0", "0"],
+              ["0", "0", "0", "0", "0"]
+            ]
+          },
+          "output": 1,
+          "explanation": "One large island"
+        },
+        {
+          "id": 2,
+          "input": {
+            "grid": [
+              ["1", "1", "0", "0", "0"],
+              ["1", "1", "0", "0", "0"],
+              ["0", "0", "1", "0", "0"],
+              ["0", "0", "0", "1", "1"]
+            ]
+          },
+          "output": 3,
+          "explanation": "Three separate islands"
+        },
+        {
+          "id": 3,
+          "input": {
+            "grid": [["1"]]
+          },
+          "output": 1,
+          "explanation": "Single cell island"
+        },
+        {
+          "id": 4,
+          "input": {
+            "grid": [["0"]]
+          },
+          "output": 0,
+          "explanation": "No islands"
+        },
+        {
+          "id": 5,
+          "input": {
+            "grid": [
+              ["1", "0", "1"],
+              ["0", "1", "0"],
+              ["1", "0", "1"]
+            ]
+          },
+          "output": 5,
+          "explanation": "Diagonal islands"
+        }
+      ],
+      "constraints": {
+        "m == grid.length": true,
+        "n == grid[i].length": true,
+        "1 <= m, n <= 300": true,
+        "grid[i][j] is '0' or '1'": true
+      }
+    },
+    "44": {
+      "title": "Graph Valid Tree",
+      "description": "Determine if undirected graph is a valid tree",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "n": 5,
+            "edges": [
+              [0, 1],
+              [0, 2],
+              [0, 3],
+              [1, 4]
+            ]
+          },
+          "output": true,
+          "explanation": "Valid tree structure"
+        },
+        {
+          "id": 2,
+          "input": {
+            "n": 5,
+            "edges": [
+              [0, 1],
+              [1, 2],
+              [2, 3],
+              [1, 3],
+              [1, 4]
+            ]
+          },
+          "output": false,
+          "explanation": "Contains cycle"
+        },
+        {
+          "id": 3,
+          "input": {
+            "n": 4,
+            "edges": [
+              [0, 1],
+              [2, 3]
+            ]
+          },
+          "output": false,
+          "explanation": "Disconnected components"
+        },
+        {
+          "id": 4,
+          "input": {
+            "n": 1,
+            "edges": []
+          },
+          "output": true,
+          "explanation": "Single node tree"
+        },
+        {
+          "id": 5,
+          "input": {
+            "n": 3,
+            "edges": [
+              [0, 1],
+              [1, 2]
+            ]
+          },
+          "output": true,
+          "explanation": "Linear tree"
+        }
+      ],
+      "constraints": {
+        "1 <= n <= 2000": true,
+        "0 <= edges.length <= 5000": true,
+        "edges[i].length == 2": true,
+        "0 <= ai, bi < n": true
+      }
+    },
+    "45": {
+      "title": "Number of Connected Components in an Undirected Graph",
+      "description": "Count number of connected components in undirected graph",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "n": 5,
+            "edges": [
+              [0, 1],
+              [1, 2],
+              [3, 4]
+            ]
+          },
+          "output": 2,
+          "explanation": "Two components: [0-1-2] and [3-4]"
+        },
+        {
+          "id": 2,
+          "input": {
+            "n": 5,
+            "edges": [
+              [0, 1],
+              [1, 2],
+              [2, 3],
+              [3, 4]
+            ]
+          },
+          "output": 1,
+          "explanation": "All nodes connected"
+        },
+        {
+          "id": 3,
+          "input": {
+            "n": 5,
+            "edges": []
+          },
+          "output": 5,
+          "explanation": "No edges, all isolated"
+        },
+        {
+          "id": 4,
+          "input": {
+            "n": 4,
+            "edges": [
+              [0, 1],
+              [2, 3],
+              [1, 2]
+            ]
+          },
+          "output": 1,
+          "explanation": "Single component through multiple paths"
+        },
+        {
+          "id": 5,
+          "input": {
+            "n": 6,
+            "edges": [
+              [0, 1],
+              [2, 3],
+              [4, 5]
+            ]
+          },
+          "output": 3,
+          "explanation": "Three pairs of connected nodes"
+        }
+      ],
+      "constraints": {
+        "1 <= n <= 2000": true,
+        "1 <= edges.length <= 5000": true,
+        "edges[i].length == 2": true,
+        "0 <= ai < bi < n": true
+      }
+    },
+    "46": {
+      "title": "Alien Dictionary",
+      "description": "Determine the order of characters in alien language from dictionary words",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "words": ["wrt", "wrf", "er", "ett", "rftt"]
+          },
+          "output": "wertf",
+          "explanation": "Letters ordered based on word comparisons"
+        },
+        {
+          "id": 2,
+          "input": {
+            "words": ["z", "x"]
+          },
+          "output": "zx",
+          "explanation": "Simple two letter ordering"
+        },
+        {
+          "id": 3,
+          "input": {
+            "words": ["z", "x", "z"]
+          },
+          "output": "",
+          "explanation": "Invalid dictionary (contradiction)"
+        },
+        {
+          "id": 4,
+          "input": {
+            "words": ["abc", "ab"]
+          },
+          "output": "",
+          "explanation": "Invalid (longer word before prefix)"
+        },
+        {
+          "id": 5,
+          "input": {
+            "words": ["ac", "ab", "zc", "zb"]
+          },
+          "output": "acbz",
+          "explanation": "Multiple character relationships"
+        }
+      ],
+      "constraints": {
+        "1 <= words.length <= 100": true,
+        "1 <= words[i].length <= 100": true,
+        "words[i] consists of only lowercase English letters": true
+      }
+    },
+    "47": {
+      "title": "Climbing Stairs",
+      "description": "Count distinct ways to climb n stairs taking 1 or 2 steps at a time",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "n": 2
+          },
+          "output": 2,
+          "explanation": "Ways are: 1+1, 2"
+        },
+        {
+          "id": 2,
+          "input": {
+            "n": 3
+          },
+          "output": 3,
+          "explanation": "Ways are: 1+1+1, 1+2, 2+1"
+        },
+        {
+          "id": 3,
+          "input": {
+            "n": 4
+          },
+          "output": 5,
+          "explanation": "Ways are: 1+1+1+1, 1+1+2, 1+2+1, 2+1+1, 2+2"
+        },
+        {
+          "id": 4,
+          "input": {
+            "n": 1
+          },
+          "output": 1,
+          "explanation": "Only one way: 1"
+        },
+        {
+          "id": 5,
+          "input": {
+            "n": 5
+          },
+          "output": 8,
+          "explanation": "Eight different combinations possible"
+        }
+      ],
+      "constraints": {
+        "1 <= n <= 45": true
+      }
+    },
+    "48": {
+      "title": "Coin Change",
+      "description": "Find fewest number of coins needed to make up amount",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "coins": [1, 2, 5],
+            "amount": 11
+          },
+          "output": 3,
+          "explanation": "5 + 5 + 1 = 11"
+        },
+        {
+          "id": 2,
+          "input": {
+            "coins": [2],
+            "amount": 3
+          },
+          "output": -1,
+          "explanation": "Cannot make amount with given coins"
+        },
+        {
+          "id": 3,
+          "input": {
+            "coins": [1],
+            "amount": 0
+          },
+          "output": 0,
+          "explanation": "Zero amount needs zero coins"
+        },
+        {
+          "id": 4,
+          "input": {
+            "coins": [1, 2, 5, 10],
+            "amount": 18
+          },
+          "output": 4,
+          "explanation": "10 + 5 + 2 + 1 = 18"
+        },
+        {
+          "id": 5,
+          "input": {
+            "coins": [186, 419, 83, 408],
+            "amount": 6249
+          },
+          "output": 20,
+          "explanation": "Complex coin combination"
+        }
+      ],
+      "constraints": {
+        "1 <= coins.length <= 12": true,
+        "1 <= coins[i] <= 231 - 1": true,
+        "0 <= amount <= 104": true
+      }
+    },
+    "49": {
+      "title": "Longest Increasing Subsequence",
+      "description": "Find length of longest strictly increasing subsequence",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [10, 9, 2, 5, 3, 7, 101, 18]
+          },
+          "output": 4,
+          "explanation": "Longest sequence is [2,3,7,101]"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [0, 1, 0, 3, 2, 3]
+          },
+          "output": 4,
+          "explanation": "Longest sequence is [0,1,2,3]"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [7, 7, 7, 7, 7]
+          },
+          "output": 1,
+          "explanation": "All elements same, max length is 1"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [1]
+          },
+          "output": 1,
+          "explanation": "Single element array"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [4, 10, 4, 3, 8, 9]
+          },
+          "output": 3,
+          "explanation": "Sequence is [3,8,9]"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 2500": true,
+        "-104 <= nums[i] <= 104": true
+      }
+    },
+    "50": {
+      "title": "Word Break",
+      "description": "Determine if string can be segmented into dictionary words",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "leetcode",
+            "wordDict": ["leet", "code"]
+          },
+          "output": true,
+          "explanation": "Split into 'leet' and 'code'"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "applepenapple",
+            "wordDict": ["apple", "pen"]
+          },
+          "output": true,
+          "explanation": "Split into 'apple', 'pen', 'apple'"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "catsandog",
+            "wordDict": ["cats", "dog", "sand", "and", "cat"]
+          },
+          "output": false,
+          "explanation": "Cannot be segmented completely"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "a",
+            "wordDict": ["a"]
+          },
+          "output": true,
+          "explanation": "Single character word"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "aaaaaaa",
+            "wordDict": ["aaa", "aaaa"]
+          },
+          "output": true,
+          "explanation": "Multiple possible segmentations"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 300": true,
+        "1 <= wordDict.length <= 1000": true,
+        "1 <= wordDict[i].length <= 20": true
+      }
+    },
+    "51": {
+      "title": "Combination Sum",
+      "description": "Find unique combinations of candidates that sum to target",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "candidates": [2, 3, 6, 7],
+            "target": 7
+          },
+          "output": [[2, 2, 3], [7]],
+          "explanation": "All possible combinations that sum to 7"
+        },
+        {
+          "id": 2,
+          "input": {
+            "candidates": [2, 3, 5],
+            "target": 8
+          },
+          "output": [
+            [2, 2, 2, 2],
+            [2, 3, 3],
+            [3, 5]
+          ],
+          "explanation": "Multiple combinations possible"
+        },
+        {
+          "id": 3,
+          "input": {
+            "candidates": [2],
+            "target": 1
+          },
+          "output": [],
+          "explanation": "No possible combinations"
+        },
+        {
+          "id": 4,
+          "input": {
+            "candidates": [1],
+            "target": 1
+          },
+          "output": [[1]],
+          "explanation": "Single number combination"
+        },
+        {
+          "id": 5,
+          "input": {
+            "candidates": [1, 2, 3],
+            "target": 4
+          },
+          "output": [
+            [1, 1, 1, 1],
+            [1, 1, 2],
+            [2, 2],
+            [1, 3]
+          ],
+          "explanation": "Multiple ways using small numbers"
+        }
+      ],
+      "constraints": {
+        "1 <= candidates.length <= 30": true,
+        "2 <= target <= 40": true,
+        "All elements are unique": true
+      }
+    },
+    "52": {
+      "title": "House Robber",
+      "description": "Maximum amount that can be robbed without alerting adjacent houses",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [1, 2, 3, 1]
+          },
+          "output": 4,
+          "explanation": "Rob house 1 (money = 1) and house 3 (money = 3)"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [2, 7, 9, 3, 1]
+          },
+          "output": 12,
+          "explanation": "Rob houses 2 (7) and 4 (3) and 5 (1)"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [2, 1, 1, 2]
+          },
+          "output": 4,
+          "explanation": "Rob first and last houses"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [1]
+          },
+          "output": 1,
+          "explanation": "Only one house to rob"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [1, 2]
+          },
+          "output": 2,
+          "explanation": "Rob house with more money"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 100": true,
+        "0 <= nums[i] <= 400": true
+      }
+    },
+    "53": {
+      "title": "House Robber II",
+      "description": "Like House Robber but houses form a circle",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [2, 3, 2]
+          },
+          "output": 3,
+          "explanation": "Cannot rob first and last house"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [1, 2, 3, 1]
+          },
+          "output": 4,
+          "explanation": "Rob house 2 and 4"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [1, 2, 3]
+          },
+          "output": 3,
+          "explanation": "Rob the house with max money"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [1]
+          },
+          "output": 1,
+          "explanation": "Only one house to rob"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [200, 3, 140, 20, 10]
+          },
+          "output": 340,
+          "explanation": "Rob houses with 200 and 140"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 100": true,
+        "0 <= nums[i] <= 1000": true
+      }
+    },
+    "54": {
+      "title": "Decode Ways",
+      "description": "Count number of ways to decode string of digits to letters",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "12"
+          },
+          "output": 2,
+          "explanation": "Can be decoded as 'AB' (1,2) or 'L' (12)"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "226"
+          },
+          "output": 3,
+          "explanation": "Can be decoded as (2,2,6), (22,6), or (2,26)"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "06"
+          },
+          "output": 0,
+          "explanation": "Cannot decode: leading zero invalid"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "27"
+          },
+          "output": 1,
+          "explanation": "Only one way: (2,7) as 27 > 26"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "1201234"
+          },
+          "output": 3,
+          "explanation": "Multiple valid decodings with zero"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 100": true,
+        "s contains only digits": true,
+        "s[0] cannot be '0'": true
+      }
+    },
+    "55": {
+      "title": "Unique Paths",
+      "description": "Find number of unique paths from top-left to bottom-right",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "m": 3,
+            "n": 7
+          },
+          "output": 28,
+          "explanation": "28 different possible paths"
+        },
+        {
+          "id": 2,
+          "input": {
+            "m": 3,
+            "n": 2
+          },
+          "output": 3,
+          "explanation": "Three possible paths"
+        },
+        {
+          "id": 3,
+          "input": {
+            "m": 1,
+            "n": 1
+          },
+          "output": 1,
+          "explanation": "Start cell is also end cell"
+        },
+        {
+          "id": 4,
+          "input": {
+            "m": 3,
+            "n": 3
+          },
+          "output": 6,
+          "explanation": "Six possible paths in square grid"
+        },
+        {
+          "id": 5,
+          "input": {
+            "m": 4,
+            "n": 4
+          },
+          "output": 20,
+          "explanation": "Twenty paths in larger square"
+        }
+      ],
+      "constraints": {
+        "1 <= m, n <= 100": true,
+        "Answer will be less than or equal to 2 * 109": true
+      }
+    },
+    "56": {
+      "title": "Jump Game",
+      "description": "Determine if you can reach last index",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [2, 3, 1, 1, 4]
+          },
+          "output": true,
+          "explanation": "Jump 1 step from index 0 to 1, then 3 steps to last index"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [3, 2, 1, 0, 4]
+          },
+          "output": false,
+          "explanation": "Stuck at index 3 with zero jump power"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [0]
+          },
+          "output": true,
+          "explanation": "Already at last index"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [1, 1, 1, 1]
+          },
+          "output": true,
+          "explanation": "Can reach end with consecutive jumps"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [2, 0, 0]
+          },
+          "output": true,
+          "explanation": "Can jump over zeros"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 104": true,
+        "0 <= nums[i] <= 105": true
+      }
+    },
+    "57": {
+      "title": "Longest Common Subsequence",
+      "description": "Find length of longest common subsequence between two strings",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "text1": "abcde",
+            "text2": "ace"
+          },
+          "output": 3,
+          "explanation": "LCS is 'ace'"
+        },
+        {
+          "id": 2,
+          "input": {
+            "text1": "abc",
+            "text2": "abc"
+          },
+          "output": 3,
+          "explanation": "Identical strings"
+        },
+        {
+          "id": 3,
+          "input": {
+            "text1": "abc",
+            "text2": "def"
+          },
+          "output": 0,
+          "explanation": "No common characters"
+        },
+        {
+          "id": 4,
+          "input": {
+            "text1": "aaaaaa",
+            "text2": "aaa"
+          },
+          "output": 3,
+          "explanation": "Repeated characters"
+        },
+        {
+          "id": 5,
+          "input": {
+            "text1": "bsbininm",
+            "text2": "jmjkbkjk"
+          },
+          "output": 1,
+          "explanation": "Complex pattern matching"
+        }
+      ],
+      "constraints": {
+        "1 <= text1.length, text2.length <= 1000": true,
+        "text1 and text2 consist of only lowercase English characters": true
+      }
+    },
+    "58": {
+      "title": "Insert Interval",
+      "description": "Insert new interval and merge if necessary",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "intervals": [
+              [1, 3],
+              [6, 9]
+            ],
+            "newInterval": [2, 5]
+          },
+          "output": [
+            [1, 5],
+            [6, 9]
+          ],
+          "explanation": "Merge overlapping interval"
+        },
+        {
+          "id": 2,
+          "input": {
+            "intervals": [
+              [1, 2],
+              [3, 5],
+              [6, 7],
+              [8, 10],
+              [12, 16]
+            ],
+            "newInterval": [4, 8]
+          },
+          "output": [
+            [1, 2],
+            [3, 10],
+            [12, 16]
+          ],
+          "explanation": "Merge multiple overlapping intervals"
+        },
+        {
+          "id": 3,
+          "input": {
+            "intervals": [],
+            "newInterval": [5, 7]
+          },
+          "output": [[5, 7]],
+          "explanation": "Insert into empty list"
+        },
+        {
+          "id": 4,
+          "input": {
+            "intervals": [[1, 5]],
+            "newInterval": [6, 8]
+          },
+          "output": [
+            [1, 5],
+            [6, 8]
+          ],
+          "explanation": "Non-overlapping insertion"
+        },
+        {
+          "id": 5,
+          "input": {
+            "intervals": [[1, 5]],
+            "newInterval": [0, 3]
+          },
+          "output": [[0, 5]],
+          "explanation": "Merge with overlap at start"
+        }
+      ],
+      "constraints": {
+        "0 <= intervals.length <= 104": true,
+        "intervals[i].length == 2": true,
+        "0 <= intervals[i][0] <= intervals[i][1] <= 105": true
+      }
+    },
+    "59": {
+      "title": "Merge Intervals",
+      "description": "Merge all overlapping intervals",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "intervals": [
+              [1, 3],
+              [2, 6],
+              [8, 10],
+              [15, 18]
+            ]
+          },
+          "output": [
+            [1, 6],
+            [8, 10],
+            [15, 18]
+          ],
+          "explanation": "Merge [1,3] and [2,6]"
+        },
+        {
+          "id": 2,
+          "input": {
+            "intervals": [
+              [1, 4],
+              [4, 5]
+            ]
+          },
+          "output": [[1, 5]],
+          "explanation": "Intervals touching should merge"
+        },
+        {
+          "id": 3,
+          "input": {
+            "intervals": [
+              [1, 4],
+              [0, 4]
+            ]
+          },
+          "output": [[0, 4]],
+          "explanation": "Completely overlapping intervals"
+        },
+        {
+          "id": 4,
+          "input": {
+            "intervals": [[1, 4]]
+          },
+          "output": [[1, 4]],
+          "explanation": "Single interval remains unchanged"
+        },
+        {
+          "id": 5,
+          "input": {
+            "intervals": [
+              [1, 4],
+              [0, 0]
+            ]
+          },
+          "output": [
+            [0, 0],
+            [1, 4]
+          ],
+          "explanation": "Non-overlapping intervals stay separate"
+        }
+      ],
+      "constraints": {
+        "1 <= intervals.length <= 104": true,
+        "intervals[i].length == 2": true,
+        "0 <= starti <= endi <= 104": true
+      }
+    },
+    "60": {
+      "title": "Non-overlapping Intervals",
+      "description": "Find minimum intervals to remove to make intervals non-overlapping",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "intervals": [
+              [1, 2],
+              [2, 3],
+              [3, 4],
+              [1, 3]
+            ]
+          },
+          "output": 1,
+          "explanation": "Remove [1,3] to make non-overlapping"
+        },
+        {
+          "id": 2,
+          "input": {
+            "intervals": [
+              [1, 2],
+              [1, 2],
+              [1, 2]
+            ]
+          },
+          "output": 2,
+          "explanation": "Remove two duplicate intervals"
+        },
+        {
+          "id": 3,
+          "input": {
+            "intervals": [
+              [1, 2],
+              [2, 3]
+            ]
+          },
+          "output": 0,
+          "explanation": "Already non-overlapping"
+        },
+        {
+          "id": 4,
+          "input": {
+            "intervals": [
+              [1, 100],
+              [11, 22],
+              [1, 11],
+              [2, 12]
+            ]
+          },
+          "output": 2,
+          "explanation": "Remove two overlapping intervals"
+        },
+        {
+          "id": 5,
+          "input": {
+            "intervals": [
+              [0, 2],
+              [1, 3],
+              [2, 4],
+              [3, 5],
+              [4, 6]
+            ]
+          },
+          "output": 2,
+          "explanation": "Remove intervals to make non-overlapping"
+        }
+      ],
+      "constraints": {
+        "1 <= intervals.length <= 105": true,
+        "intervals[i].length == 2": true,
+        "-5 * 104 <= starti < endi <= 5 * 104": true
+      }
+    },
+    "61": {
+      "title": "Meeting Rooms",
+      "description": "Determine if a person can attend all meetings",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "intervals": [
+              [0, 30],
+              [5, 10],
+              [15, 20]
+            ]
+          },
+          "output": false,
+          "explanation": "Meetings at [0,30] and [5,10] overlap"
+        },
+        {
+          "id": 2,
+          "input": {
+            "intervals": [
+              [7, 10],
+              [2, 4]
+            ]
+          },
+          "output": true,
+          "explanation": "No overlapping meetings"
+        },
+        {
+          "id": 3,
+          "input": {
+            "intervals": [
+              [1, 2],
+              [2, 3]
+            ]
+          },
+          "output": true,
+          "explanation": "Back-to-back meetings are possible"
+        },
+        {
+          "id": 4,
+          "input": {
+            "intervals": [
+              [1, 5],
+              [5, 10]
+            ]
+          },
+          "output": true,
+          "explanation": "Meetings exactly touching are allowed"
+        },
+        {
+          "id": 5,
+          "input": {
+            "intervals": [
+              [9, 10],
+              [4, 9],
+              [4, 17]
+            ]
+          },
+          "output": false,
+          "explanation": "Multiple overlapping meetings"
+        }
+      ],
+      "constraints": {
+        "0 <= intervals.length <= 104": true,
+        "intervals[i].length == 2": true,
+        "0 <= starti < endi <= 106": true
+      }
+    },
+    "62": {
+      "title": "Meeting Rooms II",
+      "description": "Find minimum number of conference rooms needed",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "intervals": [
+              [0, 30],
+              [5, 10],
+              [15, 20]
+            ]
+          },
+          "output": 2,
+          "explanation": "Need 2 rooms for overlapping meetings"
+        },
+        {
+          "id": 2,
+          "input": {
+            "intervals": [
+              [7, 10],
+              [2, 4]
+            ]
+          },
+          "output": 1,
+          "explanation": "One room sufficient for non-overlapping meetings"
+        },
+        {
+          "id": 3,
+          "input": {
+            "intervals": [
+              [1, 4],
+              [4, 5],
+              [5, 6]
+            ]
+          },
+          "output": 1,
+          "explanation": "Back-to-back meetings need only one room"
+        },
+        {
+          "id": 4,
+          "input": {
+            "intervals": [
+              [1, 4],
+              [4, 5],
+              [2, 3],
+              [3, 6]
+            ]
+          },
+          "output": 2,
+          "explanation": "Complex overlapping requires two rooms"
+        },
+        {
+          "id": 5,
+          "input": {
+            "intervals": [
+              [9, 10],
+              [4, 9],
+              [4, 17],
+              [5, 6],
+              [1, 2]
+            ]
+          },
+          "output": 3,
+          "explanation": "Multiple simultaneous meetings need three rooms"
+        }
+      ],
+      "constraints": {
+        "1 <= intervals.length <= 104": true,
+        "0 <= starti < endi <= 106": true,
+        "intervals[i].length == 2": true
+      }
+    }
+  }
+}
