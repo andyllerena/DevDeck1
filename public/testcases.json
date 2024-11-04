@@ -13,7 +13,7 @@
   "testCases": {
     "1": {
       "title": "Two Sum",
-      "description": "Find two numbers in the array that add up to the target",
+      "description": "Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.\n\nYou may assume that every input has exactly one pair of indices i and j that satisfy the condition.\n\nReturn the answer with the smaller index first.",
       "cases": [
         {
           "id": 1,
@@ -69,7 +69,7 @@
     },
     "2": {
       "title": "Contains Duplicate",
-      "description": "Determine if array contains any duplicate numbers",
+      "description": "Given an integer array nums, return true if any value appears more than once in the array, otherwise return false.",
       "cases": [
         {
           "id": 1,
@@ -119,7 +119,7 @@
     },
     "3": {
       "title": "Valid Anagram",
-      "description": "Determine if two strings are anagrams",
+      "description": "Given two strings s and t, return true if the two strings are anagrams of each other, otherwise return false. An anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.",
       "cases": [
         {
           "id": 1,
@@ -174,7 +174,7 @@
     },
     "4": {
       "title": "Group Anagrams",
-      "description": "Group strings that are anagrams of each other",
+      "description": "Given an array of strings strs, group all anagrams together into sublists.\n\nYou may return the output in any order.\n\nAn anagram is a string that contains the exact same characters as another string, but the order of the characters can be different.",
       "cases": [
         {
           "id": 1,
@@ -225,7 +225,7 @@
     },
     "5": {
       "title": "Top K Frequent Elements",
-      "description": "Find the k most frequent elements",
+      "description": "Given an integer array nums and an integer k, return the k most frequent elements within the array.\n\nThe test cases are generated such that the answer is always unique.\n\nYou may return the output in any order.",
       "cases": [
         {
           "id": 1,
@@ -281,7 +281,7 @@
     },
     "6": {
       "title": "Product of Array Except Self",
-      "description": "Return array where each element is product of all numbers except self",
+      "description": "Given an integer array nums, return an array output where output[i] is the product of all the elements of nums except nums[i].\n\nEach product is guaranteed to fit in a 32-bit integer.\n\nFollow-up: Could you solve it in O(n) time without using the division operation?",
       "cases": [
         {
           "id": 1,
@@ -332,7 +332,7 @@
     },
     "7": {
       "title": "Encode and Decode Strings",
-      "description": "Design algorithm to encode and decode list of strings",
+      "description": "Design an algorithm to encode a list of strings to a single string. The encoded string is then decoded back to the original list of strings.\n\nPlease implement encode and decode functions.",
       "cases": [
         {
           "id": 1,
@@ -388,7 +388,7 @@
     },
     "8": {
       "title": "Longest Consecutive Sequence",
-      "description": "Find length of longest consecutive elements sequence",
+      "description": "Given an array of integers nums, return the length of the longest consecutive sequence of elements.\n\nA consecutive sequence is a sequence of elements in which each element is exactly 1 greater than the previous element.\n\nYou must write an algorithm that runs in O(n) time.",
       "cases": [
         {
           "id": 1,
@@ -438,7 +438,7 @@
     },
     "9": {
       "title": "Valid Palindrome",
-      "description": "Determine if string is palindrome considering only alphanumeric",
+      "description": "Given a string s, return true if it is a palindrome, otherwise return false.\n\nA palindrome is a string that reads the same forward and backward. It is also case-insensitive and ignores all non-alphanumeric characters.",
       "cases": [
         {
           "id": 1,
@@ -488,7 +488,7 @@
     },
     "10": {
       "title": "3Sum",
-      "description": "Find all unique triplets that sum to zero",
+      "description": "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] where nums[i] + nums[j] + nums[k] == 0, and the indices i, j, and k are all distinct.\n\nThe output should not contain any duplicate triplets. You may return the output and the triplets in any order.",
       "cases": [
         {
           "id": 1,
@@ -544,7 +544,7 @@
     },
     "11": {
       "title": "Container With Most Water",
-      "description": "Find two lines that together with x-axis forms container with most water",
+      "description": "You are given an integer array heights where heights[i] represents the height of the ith bar.\n\nYou may choose any two bars to form a container. Return the maximum amount of water a container can store.",
       "cases": [
         {
           "id": 1,
@@ -595,7 +595,7 @@
     },
     "12": {
       "title": "Best Time to Buy and Sell Stock",
-      "description": "Find maximum profit from buying and selling stock once",
+      "description": "You are given an integer array prices where prices[i] is the price of NeetCoin on the ith day.\n\nYou may choose a single day to buy one NeetCoin and choose a different day in the future to sell it.\n\nReturn the maximum profit you can achieve. You may choose to not make any transactions, in which case the profit would be 0.",
       "cases": [
         {
           "id": 1,
@@ -645,7 +645,7 @@
     },
     "13": {
       "title": "Longest Substring Without Repeating Characters",
-      "description": "Find length of longest substring without repeating characters",
+      "description": "Given a string s, find the length of the longest substring without duplicate characters.\n\nA substring is a contiguous sequence of characters within a string.",
       "cases": [
         {
           "id": 1,
@@ -695,7 +695,7 @@
     },
     "14": {
       "title": "Longest Repeating Character Replacement",
-      "description": "Find longest substring with same letter after k replacements",
+      "description": "You are given a string s consisting of only uppercase English characters and an integer k. You can choose up to k characters of the string and replace them with any other uppercase English character.\n\nAfter performing at most k replacements, return the length of the longest substring which contains only one distinct character.",
       "cases": [
         {
           "id": 1,
@@ -751,7 +751,7 @@
     },
     "15": {
       "title": "Minimum Window Substring",
-      "description": "Find minimum window substring containing all characters of t",
+      "description": "Given two strings s and t, return the shortest substring of s such that every character in t, including duplicates, is present in the substring.\n\nIf such a substring does not exist, return an empty string \"\".\n\nYou may assume that the correct output is always unique.",
       "cases": [
         {
           "id": 1,
@@ -806,7 +806,7 @@
     },
     "16": {
       "title": "Valid Parentheses",
-      "description": "Determine if string has valid parentheses ordering",
+      "description": "You are given a string s consisting of the following characters: '(', ')', '{', '}', '[' and ']'.\n\nThe input string s is valid if and only if:\n\n1. Every open bracket is closed by the same type of close bracket.\n2. Open brackets are closed in the correct order.\n3. Every close bracket has a corresponding open bracket of the same type.\n\nReturn true if s is a valid string, and false otherwise.",
       "cases": [
         {
           "id": 1,
@@ -856,7 +856,7 @@
     },
     "17": {
       "title": "Number of 1 Bits",
-      "description": "Count the number of '1' bits in an unsigned integer",
+      "description": "You are given an unsigned integer n. Return the number of 1 bits in its binary representation.\n\nYou may assume n is a non-negative integer which fits within 32 bits.",
       "cases": [
         {
           "id": 1,
@@ -905,7 +905,7 @@
     },
     "18": {
       "title": "Counting Bits",
-      "description": "Return array counting number of 1's in binary representation of each number",
+      "description": "Given an integer n, count the number of 1's in the binary representation of every number in the range [0, n].\n\nReturn an array output where output[i] is the number of 1's in the binary representation of i.",
       "cases": [
         {
           "id": 1,
@@ -954,7 +954,7 @@
     },
     "19": {
       "title": "Missing Number",
-      "description": "Find missing number in range [0,n] from array",
+      "description": "Given an array nums containing n integers in the range [0, n] without any duplicates, return the single number in the range that is missing from nums.\n\nFollow-up: Could you implement a solution using only O(1) extra space complexity and O(n) runtime complexity?",
       "cases": [
         {
           "id": 1,
@@ -1006,7 +1006,7 @@
     },
     "20": {
       "title": "Reverse Bits",
-      "description": "Reverse bits of a given 32 bits unsigned integer",
+      "description": "Given a 32-bit unsigned integer n, reverse the bits of the binary representation of n and return the result.",
       "cases": [
         {
           "id": 1,
@@ -1055,7 +1055,7 @@
     },
     "21": {
       "title": "Sum of Two Integers",
-      "description": "Calculate sum without using + or - operators",
+      "description": "Given two integers a and b, return the sum of the two integers without using the + and - operators.",
       "cases": [
         {
           "id": 1,
@@ -1109,7 +1109,7 @@
     },
     "22": {
       "title": "Reverse Linked List",
-      "description": "Reverse a singly linked list",
+      "description": "Given two integers a and b, return the sum of the two integers without using the + and - operators.",
       "cases": [
         {
           "id": 1,
@@ -1159,7 +1159,7 @@
     },
     "23": {
       "title": "Merge Two Sorted Lists",
-      "description": "Merge two sorted linked lists into one sorted list",
+      "description": "You are given the heads of two sorted linked lists list1 and list2.\n\nMerge the two lists into one sorted linked list and return the head of the new sorted linked list.\n\nThe new list should be made up of nodes from list1 and list2.",
       "cases": [
         {
           "id": 1,
@@ -1215,7 +1215,7 @@
     },
     "24": {
       "title": "Reorder List",
-      "description": "Reorder list to L0 → Ln → L1 → Ln-1 → L2 → Ln-2 →...",
+      "description": "You are given the head of a singly linked-list.\n\nThe positions of a linked list of length = 7, for example, can initially be represented as:\n\n[0, 1, 2, 3, 4, 5, 6]\n\nReorder the nodes of the linked list to be in the following order:\n\n[0, 6, 1, 5, 2, 4, 3]\n\nNotice that in the general case for a list of length = n, the nodes are reordered to be in the following order:\n\n[0, n-1, 1, n-2, 2, n-3, ...]\n\nYou may not modify the values in the list's nodes, but instead you must reorder the nodes themselves.",
       "cases": [
         {
           "id": 1,
@@ -1265,7 +1265,7 @@
     },
     "25": {
       "title": "Remove Nth Node From End of List",
-      "description": "Remove nth node from end of list and return its head",
+      "description": "You are given the beginning of a linked list head, and an integer n.\n\nRemove the nth node from the end of the list and return the beginning of the list.",
       "cases": [
         {
           "id": 1,
@@ -1322,7 +1322,7 @@
     },
     "26": {
       "title": "Detect Cycle in a Linked List",
-      "description": "Determine if linked list has a cycle",
+      "description": "Given the beginning of a linked list head, return true if there is a cycle in the linked list. Otherwise, return false.\n\nThere is a cycle in a linked list if at least one node in the list can be visited again by following the next pointer.\n\nInternally, index determines the index of the beginning of the cycle, if it exists. The tail node of the list will set its next pointer to the index-th node. If index = -1, then the tail node points to null and no cycle exists.\n\nNote: index is not given to you as a parameter.",
       "cases": [
         {
           "id": 1,
@@ -1378,7 +1378,7 @@
     },
     "27": {
       "title": "Merge K Sorted Lists",
-      "description": "Merge k sorted linked lists into one sorted list",
+      "description": "You are given an array of k linked lists, where each list is sorted in ascending order.\n\nReturn the sorted linked list that is the result of merging all of the individual linked lists.",
       "cases": [
         {
           "id": 1,
@@ -1438,7 +1438,7 @@
     },
     "28": {
       "title": "Maximum Depth of Binary Tree",
-      "description": "Find the maximum depth (height) of binary tree",
+      "description": "Given the root of a binary tree, return its depth.\n\nThe depth of a binary tree is defined as the number of nodes along the longest path from the root node down to the farthest leaf node.",
       "cases": [
         {
           "id": 1,
@@ -1488,7 +1488,7 @@
     },
     "29": {
       "title": "Same Tree",
-      "description": "Determine if two binary trees are identical",
+      "description": "Given the roots of two binary trees p and q, return true if the trees are equivalent; otherwise, return false.\n\nTwo binary trees are considered equivalent if they share the exact same structure and the nodes have the same values.",
       "cases": [
         {
           "id": 1,
@@ -1543,7 +1543,7 @@
     },
     "30": {
       "title": "Invert Binary Tree",
-      "description": "Mirror the binary tree by swapping left and right children",
+      "description": "You are given the root of a binary tree root. Invert the binary tree and return its root.",
       "cases": [
         {
           "id": 1,
@@ -1593,7 +1593,7 @@
     },
     "31": {
       "title": "Binary Tree Maximum Path Sum",
-      "description": "Find path with maximum sum in binary tree",
+      "description": "Given the root of a non-empty binary tree, return the maximum path sum of any non-empty path.\n\nA path in a binary tree is a sequence of nodes where each pair of adjacent nodes has an edge connecting them. A node cannot appear in the sequence more than once. The path does not necessarily need to include the root.\n\nThe path sum of a path is the sum of the node's values in the path.",
       "cases": [
         {
           "id": 1,
@@ -1643,7 +1643,7 @@
     },
     "32": {
       "title": "Binary Tree Level Order Traversal",
-      "description": "Return level order traversal of binary tree nodes",
+      "description": "Given a binary tree root, return the level order traversal of it as a nested list, where each sublist contains the values of nodes at a particular level in the tree, from left to right.",
       "cases": [
         {
           "id": 1,
@@ -1693,7 +1693,7 @@
     },
     "33": {
       "title": "Serialize and Deserialize Binary Tree",
-      "description": "Design algorithm to serialize and deserialize binary tree",
+      "description": "Implement an algorithm to serialize and deserialize a binary tree.\n\nSerialization is the process of converting an in-memory structure into a sequence of bits so that it can be stored or sent across a network to be reconstructed later in another computer environment.\n\nYou just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure. There is no additional restriction on how your serialization/deserialization algorithm should work.\n\nNote: The input/output format in the examples is the same as how NeetCode serializes a binary tree. You do not necessarily need to follow this format.",
       "cases": [
         {
           "id": 1,
@@ -1748,7 +1748,7 @@
     },
     "34": {
       "title": "Subtree of Another Tree",
-      "description": "Check if binary tree is subtree of another binary tree",
+      "description": "Given the roots of two binary trees root and subRoot, return true if there is a subtree of root with the same structure and node values as subRoot; otherwise, return false.\n\nA subtree of a binary tree tree is a tree that consists of a node in tree and all of this node's descendants. The tree tree could also be considered as a subtree of itself.",
       "cases": [
         {
           "id": 1,
@@ -1804,7 +1804,7 @@
     },
     "35": {
       "title": "Construct Binary Tree from Preorder and Inorder Traversal",
-      "description": "Build binary tree from preorder and inorder traversal arrays",
+      "description": "You are given two integer arrays preorder and inorder.\n\n- preorder is the preorder traversal of a binary tree.\n- inorder is the inorder traversal of the same tree.\n\nBoth arrays are of the same size and consist of unique values.\n\nRebuild the binary tree from the preorder and inorder traversals and return its root.",
       "cases": [
         {
           "id": 1,
@@ -1860,7 +1860,7 @@
     },
     "36": {
       "title": "Implement Trie (Prefix Tree)",
-      "description": "Implement a trie with insert, search and startsWith methods",
+      "description": "A prefix tree (also known as a trie) is a tree data structure used to efficiently store and retrieve keys in a set of strings. Some applications of this data structure include auto-complete and spell checker systems.\n\nImplement the PrefixTree class:\n\n- PrefixTree() Initializes the prefix tree object.\n- void insert(String word) Inserts the string word into the prefix tree.\n- boolean search(String word) Returns true if the string word is in the prefix tree (i.e., was inserted before), and false otherwise.\n- boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise.",
       "cases": [
         {
           "id": 1,
@@ -1937,7 +1937,7 @@
     },
     "37": {
       "title": "Design Add and Search Words Data Structure",
-      "description": "Design data structure supporting adding and searching words with '.' wildcards",
+      "description": "Design a data structure that supports adding new words and searching for existing words.\n\nImplement the WordDictionary class:\n\n- void addWord(word) Adds word to the data structure.\n- bool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. The word may contain dots '.' where dots can be matched with any letter.",
       "cases": [
         {
           "id": 1,
@@ -2001,7 +2001,7 @@
     },
     "38": {
       "title": "Word Search II",
-      "description": "Find all words in the board from given word list",
+      "description": "Given a 2-D grid of characters board and a list of strings words, return all words that are present in the grid.\n\nFor a word to be present, it must be possible to form the word with a path in the board using horizontally or vertically neighboring cells. The same cell may not be used more than once in a word.",
       "cases": [
         {
           "id": 1,
@@ -2072,7 +2072,7 @@
     },
     "39": {
       "title": "Find Median from Data Stream",
-      "description": "Design data structure that can find median from stream of numbers",
+      "description": "The median is the middle value in a sorted list of integers. For lists of even length, there is no middle value, so the median is the mean of the two middle values.\n\nFor example:\n\n- For arr = [1,2,3], the median is 2.\n- For arr = [1,2], the median is (1 + 2) / 2 = 1.5.\n\nImplement the MedianFinder class:\n\n- MedianFinder() initializes the MedianFinder object.\n- void addNum(int num) adds the integer num from the data stream to the data structure.\n- double findMedian() returns the median of all elements so far.",
       "cases": [
         {
           "id": 1,
@@ -2147,7 +2147,7 @@
     },
     "40": {
       "title": "Clone Graph",
-      "description": "Deep copy a connected undirected graph",
+      "description": "Given a node in a connected undirected graph, return a deep copy of the graph.\n\nEach node in the graph contains an integer value and a list of its neighbors.\n\nclass Node {\n    public int val;\n    public List<Node> neighbors;\n}\n\nThe graph is shown in the test cases as an adjacency list. An adjacency list is a mapping of nodes to lists, used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.\n\nFor simplicity, node values are numbered from 1 to n, where n is the total number of nodes in the graph. The index of each node within the adjacency list is the same as the node's value (1-indexed).\n\nThe input node will always be the first node in the graph and have 1 as the value.",
       "cases": [
         {
           "id": 1,
@@ -2208,7 +2208,7 @@
     },
     "41": {
       "title": "Course Schedule",
-      "description": "Determine if it's possible to finish all courses given prerequisites",
+      "description": "You are given an array prerequisites where prerequisites[i] = [a, b] indicates that you must take course b first if you want to take course a.\n\nFor example, the pair [0, 1] indicates that you must take course 1 before taking course 0.\n\nThere are a total of numCourses courses you are required to take, labeled from 0 to numCourses - 1.\n\nReturn true if it is possible to finish all courses; otherwise, return false.",
       "cases": [
         {
           "id": 1,
@@ -2275,7 +2275,7 @@
     },
     "42": {
       "title": "Pacific Atlantic Water Flow",
-      "description": "Find cells where water can flow to both Pacific and Atlantic oceans",
+      "description": "You are given a rectangular island heights where heights[r][c] represents the height above sea level of the cell at coordinate (r, c).\n\nThe island borders the Pacific Ocean from the top and left sides and borders the Atlantic Ocean from the bottom and right sides.\n\nWater can flow in four directions (up, down, left, or right) from a cell to a neighboring cell with height equal to or lower than the current cell. Water can also flow into the ocean from cells adjacent to the ocean.\n\nFind all cells where water can flow from that cell to both the Pacific and Atlantic oceans. Return it as a 2D list where each element is a list [r, c] representing the row and column of the cell. You may return the answer in any order.",
       "cases": [
         {
           "id": 1,
@@ -2365,7 +2365,7 @@
     },
     "43": {
       "title": "Number of Islands",
-      "description": "Count number of islands in 2D grid",
+      "description": "Given a 2D grid grid where '1' represents land and '0' represents water, count and return the number of islands.\n\nAn island is formed by connecting adjacent lands horizontally or vertically and is surrounded by water. You may assume water is surrounding the grid (i.e., all the edges are water).",
       "cases": [
         {
           "id": 1,
@@ -2431,7 +2431,7 @@
     },
     "44": {
       "title": "Graph Valid Tree",
-      "description": "Determine if undirected graph is a valid tree",
+      "description": "Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.",
       "cases": [
         {
           "id": 1,
@@ -2505,7 +2505,7 @@
     },
     "45": {
       "title": "Number of Connected Components in an Undirected Graph",
-      "description": "Count number of connected components in undirected graph",
+      "description": "There is an undirected graph with n nodes. There is also an edges array, where edges[i] = [a, b] means that there is an edge between node a and node b in the graph.\n\nThe nodes are numbered from 0 to n - 1.\n\nReturn the total number of connected components in that graph.",
       "cases": [
         {
           "id": 1,
@@ -2579,7 +2579,7 @@
     },
     "46": {
       "title": "Alien Dictionary",
-      "description": "Determine the order of characters in alien language from dictionary words",
+      "description": "There is a foreign language that uses the Latin alphabet, but the order among letters is not 'a', 'b', 'c' ... 'z' as in English.\n\nYou receive a list of non-empty strings words from the dictionary, where the words are sorted lexicographically based on the rules of this new language.\n\nDerive the order of letters in this language. If the order is invalid, return an empty string. If there are multiple valid orders of letters, return any of them.\n\nA string a is lexicographically smaller than a string b if either of the following is true:\n\n1. The first letter where they differ is smaller in a than in b.\n2. There is no index i such that a[i] != b[i] and a.length < b.length.",
       "cases": [
         {
           "id": 1,
@@ -2630,7 +2630,7 @@
     },
     "47": {
       "title": "Climbing Stairs",
-      "description": "Count distinct ways to climb n stairs taking 1 or 2 steps at a time",
+      "description": "You are given an integer n representing the number of steps to reach the top of a staircase. You can climb with either 1 or 2 steps at a time.\n\nReturn the number of distinct ways to climb to the top of the staircase.",
       "cases": [
         {
           "id": 1,
@@ -2679,7 +2679,7 @@
     },
     "48": {
       "title": "Coin Change",
-      "description": "Find fewest number of coins needed to make up amount",
+      "description": "You are given an integer array coins representing coins of different denominations (e.g., 1 dollar, 5 dollars, etc.) and an integer amount representing a target amount of money.\n\nReturn the fewest number of coins that you need to make up the exact target amount. If it is impossible to make up the amount, return -1.\n\nYou may assume that you have an unlimited number of each coin.",
       "cases": [
         {
           "id": 1,
@@ -2735,7 +2735,7 @@
     },
     "49": {
       "title": "Longest Increasing Subsequence",
-      "description": "Find length of longest strictly increasing subsequence",
+      "description": "Given a string s, return the longest substring of s that is a palindrome.\n\nA palindrome is a string that reads the same forward and backward.\n\nIf there are multiple palindromic substrings that have the same length, return any one of them.",
       "cases": [
         {
           "id": 1,
@@ -2785,7 +2785,7 @@
     },
     "50": {
       "title": "Word Break",
-      "description": "Determine if string can be segmented into dictionary words",
+      "description": "Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of dictionary words.\n\nYou are allowed to reuse words in the dictionary an unlimited number of times. You may assume all dictionary words are unique.",
       "cases": [
         {
           "id": 1,
@@ -2841,7 +2841,7 @@
     },
     "51": {
       "title": "Combination Sum",
-      "description": "Find unique combinations of candidates that sum to target",
+      "description": "You are given an array of distinct integers nums and a target integer target. Your task is to return a list of all unique combinations of nums where the chosen numbers sum to target.\n\nThe same number may be chosen from nums an unlimited number of times. Two combinations are the same if the frequency of each of the chosen numbers is the same; otherwise, they are different.\n\nYou may return the combinations in any order, and the order of the numbers in each combination can be in any order.",
       "cases": [
         {
           "id": 1,
@@ -2906,7 +2906,7 @@
     },
     "52": {
       "title": "House Robber",
-      "description": "Maximum amount that can be robbed without alerting adjacent houses",
+      "description": "You are given an integer array nums where nums[i] represents the amount of money the ith house has. The houses are arranged in a straight line, meaning the ith house is the neighbor of the (i-1)th and (i+1)th house.\n\nYou are planning to rob money from the houses, but you cannot rob two adjacent houses because the security system will automatically alert the police if two adjacent houses were both broken into.\n\nReturn the maximum amount of money you can rob without alerting the police.",
       "cases": [
         {
           "id": 1,
@@ -2956,7 +2956,7 @@
     },
     "53": {
       "title": "House Robber II",
-      "description": "Like House Robber but houses form a circle",
+      "description": "You are given an integer array nums where nums[i] represents the amount of money the ith house has. The houses are arranged in a circle, meaning the first house and the last house are neighbors.\n\nYou are planning to rob money from the houses, but you cannot rob two adjacent houses because the security system will automatically alert the police if two adjacent houses were both broken into.\n\nReturn the maximum amount of money you can rob without alerting the police.",
       "cases": [
         {
           "id": 1,
@@ -3006,7 +3006,7 @@
     },
     "54": {
       "title": "Decode Ways",
-      "description": "Count number of ways to decode string of digits to letters",
+      "description": "A string consisting of uppercase English characters can be encoded to a number using the following mapping:\n\n- 'A' -> \"1\"\n- 'B' -> \"2\"\n...\n- 'Z' -> \"26\"\n\nTo decode a message, digits must be grouped and then mapped back into letters using the reverse of the mapping above. There may be multiple ways to decode a message. For example, \"1012\" can be mapped into:\n\n- \"JAB\" with the grouping (10 1 2)\n- \"JL\" with the grouping (10 12)\n\nThe grouping (1 01 2) is invalid because 01 cannot be mapped into a letter since it contains a leading zero.\n\nGiven a string s containing only digits, return the number of ways to decode it. You can assume that the answer fits in a 32-bit integer.",
       "cases": [
         {
           "id": 1,
@@ -3057,7 +3057,7 @@
     },
     "55": {
       "title": "Unique Paths",
-      "description": "Find number of unique paths from top-left to bottom-right",
+      "description": "There is an m x n grid where you are allowed to move either down or to the right at any point in time.\n\nGiven the two integers m and n, return the number of possible unique paths that can be taken from the top-left corner of the grid (grid[0][0]) to the bottom-right corner (grid[m - 1][n - 1]).\n\nYou may assume the output will fit in a 32-bit integer.",
       "cases": [
         {
           "id": 1,
@@ -3112,7 +3112,7 @@
     },
     "56": {
       "title": "Jump Game",
-      "description": "Determine if you can reach last index",
+      "description": "You are given an integer array nums where each element nums[i] indicates your maximum jump length at that position.\n\nReturn true if you can reach the last index starting from index 0, or false otherwise.",
       "cases": [
         {
           "id": 1,
@@ -3162,7 +3162,7 @@
     },
     "57": {
       "title": "Longest Common Subsequence",
-      "description": "Find length of longest common subsequence between two strings",
+      "description": "Given two strings text1 and text2, return the length of the longest common subsequence between the two strings if one exists; otherwise, return 0.\n\nA subsequence is a sequence that can be derived from the given sequence by deleting some or no elements without changing the relative order of the remaining characters.\n\nFor example, \"cat\" is a subsequence of \"crabt\".\n\nA common subsequence of two strings is a subsequence that exists in both strings.",
       "cases": [
         {
           "id": 1,
@@ -3217,7 +3217,7 @@
     },
     "58": {
       "title": "Insert Interval",
-      "description": "Insert new interval and merge if necessary",
+      "description": "You are given an array of non-overlapping intervals intervals where intervals[i] = [start_i, end_i] represents the start and the end time of the ith interval. intervals is initially sorted in ascending order by start_i.\n\nYou are given another interval newInterval = [start, end].\n\nInsert newInterval into intervals such that intervals is still sorted in ascending order by start_i and also intervals still does not have any overlapping intervals. You may merge the overlapping intervals if needed.\n\nReturn intervals after adding newInterval.\n\nNote: Intervals are non-overlapping if they have no common point. For example, [1,2] and [3,4] are non-overlapping, but [1,2] and [2,3] are overlapping.",
       "cases": [
         {
           "id": 1,
@@ -3292,7 +3292,7 @@
     },
     "59": {
       "title": "Merge Intervals",
-      "description": "Merge all overlapping intervals",
+      "description": "Given an array of intervals where intervals[i] = [start_i, end_i], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.\n\nYou may return the answer in any order.\n\nNote: Intervals are non-overlapping if they have no common point. For example, [1, 2] and [3, 4] are non-overlapping, but [1, 2] and [2, 3] are overlapping.",
       "cases": [
         {
           "id": 1,
@@ -3364,7 +3364,7 @@
     },
     "60": {
       "title": "Non-overlapping Intervals",
-      "description": "Find minimum intervals to remove to make intervals non-overlapping",
+      "description": "Given an array of intervals intervals where intervals[i] = [start_i, end_i], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.\n\nNote: Intervals are non-overlapping even if they have a common point. For example, [1, 3] and [2, 4] are overlapping, but [1, 2] and [2, 3] are non-overlapping.",
       "cases": [
         {
           "id": 1,
@@ -3438,7 +3438,7 @@
     },
     "61": {
       "title": "Meeting Rooms",
-      "description": "Determine if a person can attend all meetings",
+      "description": "Given an array of meeting time interval objects consisting of start and end times [[start_1,end_1],[start_2,end_2],...] (start_i < end_i), determine if a person could add all meetings to their schedule without any conflicts.",
       "cases": [
         {
           "id": 1,
@@ -3506,7 +3506,7 @@
     },
     "62": {
       "title": "Meeting Rooms II",
-      "description": "Find minimum number of conference rooms needed",
+      "description": "Given an array of meeting time interval objects consisting of start and end times [[start_1,end_1],[start_2,end_2],...] (start_i < end_i), find the minimum number of days required to schedule all meetings without any conflicts.",
       "cases": [
         {
           "id": 1,
@@ -3575,6 +3575,802 @@
         "1 <= intervals.length <= 104": true,
         "0 <= starti < endi <= 106": true,
         "intervals[i].length == 2": true
+      }
+    },
+    "63": {
+      "title": "Find Minimum in Rotated Sorted Array",
+      "description": "You are given an array of length n which was originally sorted in ascending order. It has now been rotated between 1 and n times.\n\nFor example, the array nums = [1,2,3,4,5,6] might become:\n\n- [3,4,5,6,1,2] if it was rotated 4 times.\n- [1,2,3,4,5,6] if it was rotated 6 times.\n\nNotice that rotating the array 4 times moves the last four elements of the array to the beginning. Rotating the array 6 times produces the original array.\n\nAssuming all elements in the rotated sorted array nums are unique, return the minimum element of this array.\n\nA solution that runs in O(n) time is trivial; can you write an algorithm that runs in O(log n) time?",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [3, 4, 5, 1, 2]
+          },
+          "output": 1,
+          "explanation": "The original array was [1,2,3,4,5] rotated 3 times"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [4, 5, 6, 7, 0, 1, 2]
+          },
+          "output": 0,
+          "explanation": "The original array was [0,1,2,4,5,6,7] rotated 4 times"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [11, 13, 15, 17]
+          },
+          "output": 11,
+          "explanation": "The array is already in sorted order"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [2, 1]
+          },
+          "output": 1,
+          "explanation": "Simple case with two elements"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [5, 1, 2, 3, 4]
+          },
+          "output": 1,
+          "explanation": "Array rotated once from [1,2,3,4,5]"
+        }
+      ],
+      "constraints": {
+        "n == nums.length": true,
+        "1 <= n <= 5000": true,
+        "-5000 <= nums[i] <= 5000": true,
+        "All the integers of nums are unique": true,
+        "nums is sorted and rotated between 1 and n times": true
+      }
+    },
+    "64": {
+      "title": "Search in Rotated Sorted Array",
+      "description": "You are given an array of length n which was originally sorted in ascending order. It has now been rotated between 1 and n times.\n\nFor example, the array nums = [1,2,3,4,5,6] might become:\n\n- [3,4,5,6,1,2] if it was rotated 4 times.\n- [1,2,3,4,5,6] if it was rotated 6 times.\n\nNotice that rotating the array 4 times moves the last four elements of the array to the beginning. Rotating the array 6 times produces the original array.\n\nAssuming all elements in the rotated sorted array nums are unique, return the minimum element of this array.\n\nA solution that runs in O(n) time is trivial; can you write an algorithm that runs in O(log n) time?",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [4, 5, 6, 7, 0, 1, 2],
+            "target": 0
+          },
+          "output": 4,
+          "explanation": "Target 0 is found at index 4"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [4, 5, 6, 7, 0, 1, 2],
+            "target": 3
+          },
+          "output": -1,
+          "explanation": "Target 3 is not in the array"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [1],
+            "target": 0
+          },
+          "output": -1,
+          "explanation": "Single element array, target not found"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [3, 1],
+            "target": 1
+          },
+          "output": 1,
+          "explanation": "Target found in small rotated array"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [5, 1, 3],
+            "target": 5
+          },
+          "output": 0,
+          "explanation": "Target found at beginning of rotated array"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 5000": true,
+        "-10^4 <= nums[i] <= 10^4": true,
+        "All values of nums are unique": true,
+        "nums is sorted and rotated between 1 and n times": true,
+        "-10^4 <= target <= 10^4": true
+      }
+    },
+    "65": {
+      "title": "Lowest Common Ancestor of a Binary Search Tree",
+      "description": "Given a binary search tree (BST) where all node values are unique, and two nodes from the tree p and q, return the lowest common ancestor (LCA) of the two nodes.\n\nThe lowest common ancestor between two nodes p and q is the lowest node in a tree T such that both p and q are descendants. The ancestor is allowed to be a descendant of itself.",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [6, 2, 8, 0, 4, 7, 9, null, null, 3, 5],
+            "p": 2,
+            "q": 8
+          },
+          "output": 6,
+          "explanation": "The LCA of nodes 2 and 8 is 6"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [6, 2, 8, 0, 4, 7, 9, null, null, 3, 5],
+            "p": 2,
+            "q": 4
+          },
+          "output": 2,
+          "explanation": "The LCA of nodes 2 and 4 is 2 since 2 is ancestor of 4"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": [2, 1],
+            "p": 2,
+            "q": 1
+          },
+          "output": 2,
+          "explanation": "Simple tree with root as LCA"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [6, 2, 8, 0, 4, 7, 9, null, null, 3, 5],
+            "p": 3,
+            "q": 5
+          },
+          "output": 4,
+          "explanation": "LCA of nodes in same subtree"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [6, 2, 8, 0, 4, 7, 9],
+            "p": 7,
+            "q": 9
+          },
+          "output": 8,
+          "explanation": "LCA of nodes in right subtree"
+        }
+      ],
+      "constraints": {
+        "The number of nodes in the tree is in the range [2, 105]": true,
+        "-109 <= Node.val <= 109": true,
+        "All Node.val are unique": true,
+        "p != q": true,
+        "p and q exist in the BST": true
+      }
+    },
+    "66": {
+      "title": "Validate Binary Search Tree",
+      "description": "Given the root of a binary tree, return true if it is a valid binary search tree; otherwise, return false.\n\nA valid binary search tree satisfies the following constraints:\n\n- The left subtree of every node contains only nodes with keys less than the node's key.\n- The right subtree of every node contains only nodes with keys greater than the node's key.\n- Both the left and right subtrees are also binary search trees.",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [2, 1, 3]
+          },
+          "output": true,
+          "explanation": "Valid BST with root > left child and root < right child"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [5, 1, 4, null, null, 3, 6]
+          },
+          "output": false,
+          "explanation": "Root is 5, but value 4 has right child 6 > 5"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": [5, 4, 6, null, null, 3, 7]
+          },
+          "output": false,
+          "explanation": "Value 3 in right subtree is less than root 5"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [2, 2, 2]
+          },
+          "output": false,
+          "explanation": "Duplicate values are not allowed in BST"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [3, 1, 5, 0, 2, 4, 6]
+          },
+          "output": true,
+          "explanation": "Perfect BST with all values in correct order"
+        }
+      ],
+      "constraints": {
+        "The number of nodes in the tree is in the range [1, 104]": true,
+        "-231 <= Node.val <= 231 - 1": true,
+        "Each node has a unique value": true
+      }
+    },
+    "67": {
+      "title": "Kth Smallest Element in a BST",
+      "description": "Given the root of a binary search tree and an integer k, return the kth smallest value (1-indexed) in the tree.\n\nA binary search tree satisfies the following constraints:\n\n- The left subtree of every node contains only nodes with keys less than the node's key.\n- The right subtree of every node contains only nodes with keys greater than the node's key.\n- Both the left and right subtrees are also binary search trees.",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "root": [3, 1, 4, null, 2],
+            "k": 1
+          },
+          "output": 1,
+          "explanation": "The smallest element in the BST"
+        },
+        {
+          "id": 2,
+          "input": {
+            "root": [5, 3, 6, 2, 4, null, null, 1],
+            "k": 3
+          },
+          "output": 3,
+          "explanation": "In-order traversal gives [1,2,3,4,5,6], 3rd element is 3"
+        },
+        {
+          "id": 3,
+          "input": {
+            "root": [1],
+            "k": 1
+          },
+          "output": 1,
+          "explanation": "Single node tree, k=1 returns the only value"
+        },
+        {
+          "id": 4,
+          "input": {
+            "root": [3, 1, 4, null, 2],
+            "k": 4
+          },
+          "output": 4,
+          "explanation": "In-order traversal gives [1,2,3,4], 4th element is 4"
+        },
+        {
+          "id": 5,
+          "input": {
+            "root": [5, 3, 6, 2, 4, null, null, 1],
+            "k": 6
+          },
+          "output": 6,
+          "explanation": "Kth element is the largest in the tree"
+        }
+      ],
+      "constraints": {
+        "The number of nodes in the tree is n": true,
+        "1 <= k <= n <= 104": true,
+        "0 <= Node.val <= 104": true,
+        "The tree is guaranteed to be a valid BST": true
+      }
+    },
+    "68": {
+      "title": "Word Search",
+      "description": "Given an m x n grid of characters board and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "board": [
+              ["A", "B", "C", "E"],
+              ["S", "F", "C", "S"],
+              ["A", "D", "E", "E"]
+            ],
+            "word": "ABCCED"
+          },
+          "output": true,
+          "explanation": "Path can be formed: A→B→C→C→E→D"
+        },
+        {
+          "id": 2,
+          "input": {
+            "board": [
+              ["A", "B", "C", "E"],
+              ["S", "F", "C", "S"],
+              ["A", "D", "E", "E"]
+            ],
+            "word": "SEE"
+          },
+          "output": true,
+          "explanation": "Path can be formed: S→E→E"
+        },
+        {
+          "id": 3,
+          "input": {
+            "board": [
+              ["A", "B", "C", "E"],
+              ["S", "F", "C", "S"],
+              ["A", "D", "E", "E"]
+            ],
+            "word": "ABCB"
+          },
+          "output": false,
+          "explanation": "Cannot reuse same cell to form path"
+        },
+        {
+          "id": 4,
+          "input": {
+            "board": [["A"]],
+            "word": "A"
+          },
+          "output": true,
+          "explanation": "Single character board and word match"
+        },
+        {
+          "id": 5,
+          "input": {
+            "board": [
+              ["C", "A", "A"],
+              ["A", "A", "A"],
+              ["B", "C", "D"]
+            ],
+            "word": "AAB"
+          },
+          "output": true,
+          "explanation": "Path can be formed even with multiple possible routes"
+        }
+      ],
+      "constraints": {
+        "m == board.length": true,
+        "n = board[i].length": true,
+        "1 <= m, n <= 6": true,
+        "1 <= word.length <= 15": true,
+        "board and word consists of only lowercase and uppercase English letters": true,
+        "Same letter cell may not be used more than once": true
+      }
+    },
+    "69": {
+      "title": "Maximum Subarray",
+      "description": "Find the contiguous subarray (containing at least one number) which has the largest sum and return its sum",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+          },
+          "output": 6,
+          "explanation": "The contiguous subarray [4,-1,2,1] has the largest sum = 6"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [1]
+          },
+          "output": 1,
+          "explanation": "Single element array, the element itself is the maximum subarray"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [5, 4, -1, 7, 8]
+          },
+          "output": 23,
+          "explanation": "The entire array is the maximum subarray with sum = 23"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [-1, -2, -3, -4]
+          },
+          "output": -1,
+          "explanation": "All negative numbers, the maximum subarray contains the least negative number"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [-2, 1, -3, 4, -1, 2, 1, -5, 4, -10, 12]
+          },
+          "output": 12,
+          "explanation": "The subarray [12] has the largest sum, showing that earlier elements can be ignored if they reduce the sum"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 105": true,
+        "-104 <= nums[i] <= 104": true,
+        "Array must contain at least one element": true
+      }
+    },
+    "70": {
+      "title": "Longest Palindromic Substring",
+      "description": "Given a string s, return the longest palindromic substring in s",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "babad"
+          },
+          "output": "bab",
+          "explanation": "Both 'bab' and 'aba' are valid answers"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "cbbd"
+          },
+          "output": "bb",
+          "explanation": "The longest palindromic substring is 'bb'"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "a"
+          },
+          "output": "a",
+          "explanation": "Single character is always a palindrome"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "aaaaaa"
+          },
+          "output": "aaaaaa",
+          "explanation": "Entire string is a palindrome"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "abcda"
+          },
+          "output": "a",
+          "explanation": "When no longer palindromes exist, return any single character"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 1000": true,
+        "s consist of only digits and English letters": true
+      }
+    },
+    "71": {
+      "title": "Palindromic Substrings",
+      "description": "Given a string s, return the number of palindromic substrings in it",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "s": "abc"
+          },
+          "output": 3,
+          "explanation": "Palindromic substrings are: 'a', 'b', 'c'"
+        },
+        {
+          "id": 2,
+          "input": {
+            "s": "aaa"
+          },
+          "output": 6,
+          "explanation": "Palindromic substrings are: 'a', 'a', 'a', 'aa', 'aa', 'aaa'"
+        },
+        {
+          "id": 3,
+          "input": {
+            "s": "aba"
+          },
+          "output": 4,
+          "explanation": "Palindromic substrings are: 'a', 'b', 'a', 'aba'"
+        },
+        {
+          "id": 4,
+          "input": {
+            "s": "abba"
+          },
+          "output": 6,
+          "explanation": "Palindromic substrings are: 'a', 'b', 'b', 'a', 'bb', 'abba'"
+        },
+        {
+          "id": 5,
+          "input": {
+            "s": "z"
+          },
+          "output": 1,
+          "explanation": "Single character string has one palindromic substring"
+        }
+      ],
+      "constraints": {
+        "1 <= s.length <= 1000": true,
+        "s consists of lowercase English letters": true
+      }
+    },
+    "72": {
+      "title": "Maximum Product Subarray",
+      "description": "Find the contiguous subarray within an array that has the largest product",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "nums": [2, 3, -2, 4]
+          },
+          "output": 6,
+          "explanation": "Subarray [2,3] has the largest product = 6"
+        },
+        {
+          "id": 2,
+          "input": {
+            "nums": [-2, 0, -1]
+          },
+          "output": 0,
+          "explanation": "The maximum product is 0, achieved by the single element [0]"
+        },
+        {
+          "id": 3,
+          "input": {
+            "nums": [-2, 3, -4]
+          },
+          "output": 24,
+          "explanation": "The entire array has product 24 (negative × positive × negative)"
+        },
+        {
+          "id": 4,
+          "input": {
+            "nums": [0, 2]
+          },
+          "output": 2,
+          "explanation": "Skip the 0 and take [2] for maximum product"
+        },
+        {
+          "id": 5,
+          "input": {
+            "nums": [-1, -2, -3, 0]
+          },
+          "output": 6,
+          "explanation": "Subarray [-1,-2,-3] gives maximum product 6"
+        }
+      ],
+      "constraints": {
+        "1 <= nums.length <= 2 * 104": true,
+        "-10 <= nums[i] <= 10": true,
+        "The array contains at least one number": true
+      }
+    },
+    "73": {
+      "title": "Rotate Image",
+      "description": "Rotate the given n × n 2D matrix by 90 degrees clockwise",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "matrix": [
+              [1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]
+            ]
+          },
+          "output": [
+            [7, 4, 1],
+            [8, 5, 2],
+            [9, 6, 3]
+          ],
+          "explanation": "90-degree clockwise rotation of 3x3 matrix"
+        },
+        {
+          "id": 2,
+          "input": {
+            "matrix": [
+              [5, 1, 9, 11],
+              [2, 4, 8, 10],
+              [13, 3, 6, 7],
+              [15, 14, 12, 16]
+            ]
+          },
+          "output": [
+            [15, 13, 2, 5],
+            [14, 3, 4, 1],
+            [12, 6, 8, 9],
+            [16, 7, 10, 11]
+          ],
+          "explanation": "90-degree clockwise rotation of 4x4 matrix"
+        },
+        {
+          "id": 3,
+          "input": {
+            "matrix": [[1]]
+          },
+          "output": [[1]],
+          "explanation": "1x1 matrix remains unchanged after rotation"
+        },
+        {
+          "id": 4,
+          "input": {
+            "matrix": [
+              [1, 2],
+              [3, 4]
+            ]
+          },
+          "output": [
+            [3, 1],
+            [4, 2]
+          ],
+          "explanation": "90-degree clockwise rotation of 2x2 matrix"
+        },
+        {
+          "id": 5,
+          "input": {
+            "matrix": [
+              [1, 2, 3, 4],
+              [5, 6, 7, 8],
+              [9, 10, 11, 12],
+              [13, 14, 15, 16]
+            ]
+          },
+          "output": [
+            [13, 9, 5, 1],
+            [14, 10, 6, 2],
+            [15, 11, 7, 3],
+            [16, 12, 8, 4]
+          ],
+          "explanation": "Rotation of matrix with sequential numbers"
+        }
+      ],
+      "constraints": {
+        "n == matrix.length == matrix[i].length": true,
+        "1 <= n <= 20": true,
+        "-1000 <= matrix[i][j] <= 1000": true,
+        "Must rotate in-place": true
+      }
+    },
+    "74": {
+      "title": "Spiral Matrix",
+      "description": "Return all elements of an m x n matrix in spiral order",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "matrix": [
+              [1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]
+            ]
+          },
+          "output": [1, 2, 3, 6, 9, 8, 7, 4, 5],
+          "explanation": "Spiral order: right→down→left→up→right"
+        },
+        {
+          "id": 2,
+          "input": {
+            "matrix": [
+              [1, 2, 3, 4],
+              [5, 6, 7, 8],
+              [9, 10, 11, 12]
+            ]
+          },
+          "output": [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7],
+          "explanation": "Spiral order for non-square matrix"
+        },
+        {
+          "id": 3,
+          "input": {
+            "matrix": [[1]]
+          },
+          "output": [1],
+          "explanation": "Single element matrix"
+        },
+        {
+          "id": 4,
+          "input": {
+            "matrix": [
+              [1, 2],
+              [3, 4]
+            ]
+          },
+          "output": [1, 2, 4, 3],
+          "explanation": "Spiral order for 2x2 matrix"
+        },
+        {
+          "id": 5,
+          "input": {
+            "matrix": [
+              [1, 2, 3],
+              [4, 5, 6]
+            ]
+          },
+          "output": [1, 2, 3, 6, 5, 4],
+          "explanation": "Spiral order for 2x3 matrix"
+        }
+      ],
+      "constraints": {
+        "m == matrix.length": true,
+        "n == matrix[i].length": true,
+        "1 <= m, n <= 10": true,
+        "-100 <= matrix[i][j] <= 100": true
+      }
+    },
+    "75": {
+      "title": "Set Matrix Zeroes",
+      "description": "Given an m x n matrix, if an element is 0, set its entire row and column to 0",
+      "cases": [
+        {
+          "id": 1,
+          "input": {
+            "matrix": [
+              [1, 1, 1],
+              [1, 0, 1],
+              [1, 1, 1]
+            ]
+          },
+          "output": [
+            [1, 0, 1],
+            [0, 0, 0],
+            [1, 0, 1]
+          ],
+          "explanation": "Center element affects its row and column"
+        },
+        {
+          "id": 2,
+          "input": {
+            "matrix": [
+              [0, 1, 2, 0],
+              [3, 4, 5, 2],
+              [1, 3, 1, 5]
+            ]
+          },
+          "output": [
+            [0, 0, 0, 0],
+            [0, 4, 5, 0],
+            [0, 3, 1, 0]
+          ],
+          "explanation": "Multiple zeros affect their rows and columns"
+        },
+        {
+          "id": 3,
+          "input": {
+            "matrix": [[1]]
+          },
+          "output": [[1]],
+          "explanation": "Single non-zero element remains unchanged"
+        },
+        {
+          "id": 4,
+          "input": {
+            "matrix": [
+              [1, 0],
+              [1, 1]
+            ]
+          },
+          "output": [
+            [0, 0],
+            [1, 0]
+          ],
+          "explanation": "Zero in first row affects its row and column"
+        },
+        {
+          "id": 5,
+          "input": {
+            "matrix": [
+              [1, 2, 3],
+              [4, 0, 6],
+              [7, 8, 9],
+              [10, 0, 12]
+            ]
+          },
+          "output": [
+            [1, 0, 3],
+            [0, 0, 0],
+            [7, 0, 9],
+            [0, 0, 0]
+          ],
+          "explanation": "Two zeros in same column affect multiple rows"
+        }
+      ],
+      "constraints": {
+        "m == matrix.length": true,
+        "n == matrix[i].length": true,
+        "1 <= m, n <= 200": true,
+        "-231 <= matrix[i][j] <= 231 - 1": true,
+        "Must be done in-place": true
       }
     }
   }
