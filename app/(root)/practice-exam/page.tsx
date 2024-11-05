@@ -25,6 +25,8 @@ import type {
   Problem,
   TestCasesData,
   CodeExecutionResult,
+  MonacoEditorRef,
+  ExecutionError,
 } from '@/types';
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 const CodeAssessment = () => {
@@ -43,7 +45,7 @@ const CodeAssessment = () => {
   const [code, setCode] = useState<{ [key: string]: string }>({});
   const [output, setOutput] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState(false);
-  const editorRef = useRef(null);
+  const editorRef = useRef<MonacoEditorRef | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
   // Function to fetch and select random problems from testcases.json
@@ -204,7 +206,8 @@ console.log(JSON.stringify(result));`;
         ]);
       }
     } catch (error) {
-      setOutput(['Error running code:', error.message]);
+      const executionError = error as ExecutionError;
+      setOutput(['Error running code:', executionError.message]);
     } finally {
       setIsRunning(false);
     }
@@ -586,7 +589,7 @@ console.log(JSON.stringify(result));`;
                   language={language}
                   theme="vs-dark"
                   value={currentProblemId ? code[currentProblemId] : ''}
-                  onChange={value => {
+                  onChange={(value: string | undefined) => {
                     if (currentProblemId) {
                       setCode(prev => ({
                         ...prev,

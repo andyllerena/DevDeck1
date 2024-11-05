@@ -4,6 +4,12 @@ import Link from 'next/link';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
+import type {
+  Category,
+  Problem,
+  ProblemId,
+  ProgressContextType,
+} from '@/types';
 import { useProgress } from './ProgressContent';
 
 const ITEMS_PER_PAGE = 25;
@@ -14,17 +20,12 @@ interface ProblemsListProps {
 
 const ProblemsList = ({ categories: initialCategories }: ProblemsListProps) => {
   const { completedProblems, updateProgress, resetProgress } = useProgress();
-  const [categories, setCategories] = useState(initialCategories);
+  const [categories, setCategories] = useState<Category[]>(initialCategories);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedDifficulty, setSelectedDifficulty] = useState('all');
   const [showCompleted, setShowCompleted] = useState(false);
   const [activeTab, setActiveTab] = useState(categories[0]?.id || '');
   const [currentPage, setCurrentPage] = useState(1);
-
-  // Reset page when filters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, selectedDifficulty, showCompleted]);
 
   // Update categories when completed problems change
   useEffect(() => {
@@ -52,11 +53,15 @@ const ProblemsList = ({ categories: initialCategories }: ProblemsListProps) => {
     });
   };
 
-  const getAllProblems = () => {
+  const handleProblemToggle = (problemId: ProblemId) => {
+    toggleProblemCompletion(problemId);
+  };
+
+  const getAllProblems = (): Problem[] => {
     if (selectedCategory === 'all') {
-      return categories.reduce((allProblems, category) => {
+      return categories.reduce((allProblems: Problem[], category) => {
         return [...allProblems, ...category.problems];
-      }, [] as Problem[]);
+      }, []);
     }
     return (
       categories.find(category => category.id === selectedCategory)?.problems ||
@@ -82,10 +87,6 @@ const ProblemsList = ({ categories: initialCategories }: ProblemsListProps) => {
     } else {
       setActiveTab(categoryId);
     }
-  };
-
-  const handleProblemToggle = (problemId: string) => {
-    updateProgress(problemId, !completedProblems.has(problemId));
   };
 
   return (

@@ -140,7 +140,7 @@ const AddGoalDialog: React.FC<AddGoalDialogProps> = ({
   onClose,
   onAdd,
 }) => {
-  const [goalType, setGoalType] = useState('daily');
+  const [goalType, setGoalType] = useState<'daily' | 'category'>('daily');
   const [target, setTarget] = useState(3);
   const [category, setCategory] = useState('Array');
 
@@ -341,7 +341,7 @@ const GoalsSection: React.FC = () => {
     setLocalStorage('blind75-goals', updatedGoals);
   };
 
-  const handleUpdateProgress = (goalId: string, change: number) => {
+  const handleUpdateProgress = (goalId: string | number, change: number) => {
     const updatedGoals = goals.map(goal => {
       if (goal.id === goalId) {
         const newCurrent = Math.max(
@@ -364,7 +364,7 @@ const GoalsSection: React.FC = () => {
     setLocalStorage('blind75-goals', updatedGoals);
   };
 
-  const handleDeleteGoal = (goalId: string) => {
+  const handleDeleteGoal = (goalId: string | number) => {
     const updatedGoals = goals.filter(goal => goal.id !== goalId);
     setGoals(updatedGoals);
     setLocalStorage('blind75-goals', updatedGoals);

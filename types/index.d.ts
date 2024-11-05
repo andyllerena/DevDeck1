@@ -1,10 +1,14 @@
 declare module 'types' {
   /* eslint-disable no-unused-vars */
+  import * as React from 'react';
+
+  // Search and Navigation Types
   export type SearchParamProps = {
     params: { [key: string]: string };
     searchParams: { [key: string]: string | string[] | undefined };
   };
 
+  // User Related Types
   export type SignUpParams = {
     firstName: string;
     lastName: string;
@@ -33,13 +37,21 @@ declare module 'types' {
     password: string;
   };
 
+  // Problem and Category Types
   export type Problem = {
-    id: string;
+    id: string | number;
     title: string;
-    difficulty: string;
+    difficulty: 'Easy' | 'Medium' | 'Hard';
     link: string;
+    description?: string;
+    cases?: TestCase[];
+    constraints?: {
+      [key: string]: boolean;
+    };
     completed?: boolean;
   };
+
+  export type ProblemId = string | number;
 
   export type Category = {
     id: string;
@@ -47,6 +59,52 @@ declare module 'types' {
     problems: Problem[];
   };
 
+  // Monaco Editor Types
+  export interface MonacoEditorRef {
+    getValue: () => string;
+    setValue: (value: string) => void;
+    getModel: () => any;
+    updateOptions: (options: any) => void;
+  }
+
+  export interface MonacoEditorProps {
+    height?: string | number;
+    defaultLanguage?: string;
+    language?: string;
+    value?: string;
+    theme?: string;
+    options?: {
+      minimap?: { enabled: boolean };
+      fontSize?: number;
+      lineNumbers?: 'on' | 'off';
+      formatOnType?: boolean;
+      formatOnPaste?: boolean;
+      automaticLayout?: boolean;
+      [key: string]: any;
+    };
+    onChange?: (value: string | undefined) => void;
+    onMount?: (editor: MonacoEditorRef, monaco: any) => void;
+  }
+
+  // Code Execution Types
+  export interface ExecutionError extends Error {
+    message: string;
+    name: string;
+    stack?: string;
+  }
+
+  export interface CodeExecutionResult {
+    run: {
+      stdout: string;
+      stderr: string;
+      output: string;
+      code: number;
+      signal: null | string;
+      error?: ExecutionError;
+    };
+  }
+
+  // Component Props Types
   export type ProblemsListProps = {
     categories: Category[];
   };
@@ -66,13 +124,24 @@ declare module 'types' {
     progressPercentage: number;
   }
 
+  export interface HeaderBoxProps {
+    type?: 'title' | 'greeting';
+    title: string;
+    subtext?: string;
+    user?: string;
+  }
+
   export interface FooterProps {
-    user: User;
+    user: User | null;
     type?: 'mobile' | 'desktop';
   }
 
   export interface SiderbarProps {
-    user: User;
+    user: User | null;
+  }
+
+  export interface MobileNavProps {
+    user: User | null;
   }
 
   export interface DoughnutChartProps {
@@ -89,6 +158,7 @@ declare module 'types' {
     userId: string;
   }
 
+  // Question and Test Case Types
   export interface QuestionCategory {
     id: string;
     name: string;
@@ -114,6 +184,23 @@ declare module 'types' {
     constraints: Record<string, boolean>;
   }
 
+  export interface TestCasesData {
+    metadata: {
+      version: string;
+      lastUpdated: string;
+      totalProblems: number;
+      format: {
+        input: string;
+        output: string;
+        timeLimit: string;
+        memoryLimit: string;
+      };
+    };
+    testCases: {
+      [key: string]: Problem;
+    };
+  }
+
   export type ProblemExtended = Omit<
     QuestionCategory['problems'][0],
     'link'
@@ -123,9 +210,9 @@ declare module 'types' {
     testCases: TestCase[];
   };
 
-  // Goal Types
+  // Goal Related Types
   export interface Goal {
-    id: string;
+    id: string | number;
     type: 'daily' | 'category';
     title: string;
     current: number;
@@ -138,8 +225,8 @@ declare module 'types' {
 
   export interface GoalCardProps {
     goal: Goal;
-    onUpdateProgress: (goalId: string, change: number) => void;
-    onDelete: (goalId: string) => void;
+    onUpdateProgress: (goalId: string | number, change: number) => void;
+    onDelete: (goalId: string | number) => void;
   }
 
   export interface AddGoalDialogProps {
@@ -175,8 +262,8 @@ declare module 'types' {
 
   export interface GoalManagement {
     addGoal: (goal: Goal) => void;
-    updateGoalProgress: (goalId: string, change: number) => void;
-    deleteGoal: (goalId: string) => void;
+    updateGoalProgress: (goalId: string | number, change: number) => void;
+    deleteGoal: (goalId: string | number) => void;
     getGoals: () => Goal[];
   }
 
@@ -188,20 +275,27 @@ declare module 'types' {
         total: number;
       };
     };
-    completedProblems: number;
+    completedProblems: Set<ProblemId>;
     totalProblems: number;
-    toggleProblemCompletion: (problemId: string) => void;
+    toggleProblemCompletion: (problemId: ProblemId) => void;
+    updateProgress?: (problemId: ProblemId) => void;
+    resetProgress?: () => void;
     goals?: Goal[];
-    updateGoalProgress?: (goalId: string, change: number) => void;
+    updateGoalProgress?: (goalId: ProblemId, change: number) => void;
   }
+  export type ProgressHandler = {
+    completedProblems: Set<ProblemId>;
+    updateProgress: (problemId: ProblemId, completed: boolean) => void;
+    resetProgress: () => void;
+  };
 
   // Misc Types
-  export type Bank = unknown; // Replace with actual bank type
-  export type Account = unknown; // Replace with actual account type
-  export type Transaction = unknown; // Replace with actual transaction type
+  export type Bank = unknown;
+  export type Account = unknown;
+  export type Transaction = unknown;
 
   export interface RightSidebarProps {
-    user: User;
+    user: User | null;
     transactions: Transaction[];
     banks: (Bank & Account)[];
     goals?: Goal[];
@@ -215,46 +309,18 @@ declare module 'types' {
   }
 }
 
-export interface TestCase {
-  id: number;
-  input: any;
-  output: any;
-  explanation: string;
+// Monaco Editor module declaration
+declare module '@monaco-editor/react' {
+  import * as React from 'react';
+  import { MonacoEditorProps } from 'types';
+
+  export const Editor: React.ComponentType<MonacoEditorProps>;
+  export default Editor;
 }
 
-export interface Problem {
-  title: string;
-  description: string;
-  cases: TestCase[];
-  constraints: {
-    [key: string]: boolean;
-  };
-}
-
-export interface TestCasesData {
-  metadata: {
-    version: string;
-    lastUpdated: string;
-    totalProblems: number;
-    format: {
-      input: string;
-      output: string;
-      timeLimit: string;
-      memoryLimit: string;
-    };
-  };
-  testCases: {
-    [key: string]: Problem;
-  };
-}
-export interface CodeExecutionResult {
-  run: {
-    stdout: string;
-    stderr: string;
-    output: string;
-    code: number;
-    signal: null | string;
-  };
+// Set iteration support
+interface Set<T> {
+  [Symbol.iterator](): IterableIterator<T>;
 }
 
 export {};

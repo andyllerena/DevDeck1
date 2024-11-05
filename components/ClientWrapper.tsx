@@ -3,11 +3,11 @@ import HeaderBox from './HeaderBox';
 import ProblemsList from './ProblemList';
 import ProgressBox from './ProgressBox';
 import { ProgressProvider } from './ProgressContent';
-
 import RightSideBar from './RightSideBar';
+import type { Category, User } from '@/types';
 
 interface ClientWrapperProps {
-  loggedIn: any;
+  loggedIn: User | null;
   categories: Category[];
 }
 
@@ -32,4 +32,5 @@ const ClientWrapper = ({ loggedIn, categories }: ClientWrapperProps) => {
     </ProgressProvider>
   );
 };
+
 export default ClientWrapper;

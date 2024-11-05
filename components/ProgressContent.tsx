@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect } from 'react';
-
+import type { Category } from '@/types';
 interface ProgressContextType {
   completedProblems: Set<string>;
   totalProblems: number;
