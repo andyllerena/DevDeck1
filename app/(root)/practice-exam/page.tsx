@@ -10,64 +10,41 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-import { Timer, ChevronLeft, ChevronRight } from 'lucide-react';
-
-// Updated interfaces to match your JSON structure
-interface TestCase {
-  id: number;
-  input: any;
-  output: any;
-  explanation: string;
-}
-
-interface Problem {
-  title: string;
-  description: string;
-  cases: TestCase[];
-  constraints: {
-    [key: string]: boolean;
-  };
-}
-
-interface TestCasesData {
-  metadata: {
-    version: string;
-    lastUpdated: string;
-    totalProblems: number;
-    format: {
-      input: string;
-      output: string;
-      timeLimit: string;
-      memoryLimit: string;
-    };
-  };
-  testCases: {
-    [key: string]: Problem;
-  };
-}
-
-const LANGUAGES = {
-  python: 'Python 3.10',
-  javascript: 'Node.js 18.15',
-  typescript: 'TypeScript 5.0',
-  java: 'Java 17',
-  cpp: 'C++ 17',
-};
-
+import {
+  Timer,
+  ChevronLeft,
+  ChevronRight,
+  Clock as ClockIcon, // Renamed to avoid conflict
+  XCircle as XCircleIcon, // Renamed to avoid conflict
+  Trophy as TrophyIcon, // Renamed to avoid conflict
+} from 'lucide-react';
+import { executeCode } from '@/lib/api';
+import { LANGUAGES, CODE_SNIPPETS } from '@/lib/constants';
+import type {
+  TestCase,
+  Problem,
+  TestCasesData,
+  CodeExecutionResult,
+} from '@/types';
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 const CodeAssessment = () => {
   const [showModal, setShowModal] = useState(true);
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [completionMessage, setCompletionMessage] = useState('');
+  const [solvedProblems, setSolvedProblems] = useState<Set<number>>(new Set());
   const [selectedProblems, setSelectedProblems] = useState<[string, Problem][]>(
     [],
   );
   const [currentProblemIndex, setCurrentProblemIndex] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1 * 60);
+  const [timeLeft, setTimeLeft] = useState(1 * 60); // 45 minutes
   const [language, setLanguage] = useState('python');
   const [activeTab, setActiveTab] = useState('description');
   const [code, setCode] = useState<{ [key: string]: string }>({});
   const [output, setOutput] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState(false);
   const editorRef = useRef(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // Function to fetch and select random problems from testcases.json
   const selectRandomProblems = async () => {
@@ -164,6 +141,47 @@ function solve(${Object.keys(firstCase.input).join(', ')}) {
     editorRef.current = editor;
   };
 
+  const generateTestCode = (
+    sourceCode: string,
+    testCase: TestCase,
+    lang: string,
+  ): string => {
+    switch (lang) {
+      case 'python':
+        return `${sourceCode}
+
+# Test execution
+if __name__ == "__main__":
+    ${Object.entries(testCase.input)
+      .map(([key, value]) => `${key} = ${JSON.stringify(value)}`)
+      .join('\n    ')}
+    result = solve(${Object.keys(testCase.input).join(', ')})
+    print(result)`;
+
+      case 'javascript':
+        return `${sourceCode}
+
+// Test execution
+${Object.entries(testCase.input)
+  .map(([key, value]) => `const ${key} = ${JSON.stringify(value)};`)
+  .join('\n')}
+const result = solve(${Object.keys(testCase.input).join(', ')});
+console.log(JSON.stringify(result));`;
+
+      default:
+        throw new Error(`Language ${lang} not supported`);
+    }
+  };
+  const checkCompletion = () => {
+    if (solvedProblems.size === 3) {
+      setCompletionMessage(
+        "🎉 Congratulations! You've successfully solved all problems!",
+      );
+      setShowCompletionModal(true);
+      return true;
+    }
+    return false;
+  };
   const runCode = async () => {
     if (!editorRef.current) return;
     setIsRunning(true);
@@ -171,19 +189,101 @@ function solve(${Object.keys(firstCase.input).join(', ')}) {
       const sourceCode = editorRef.current.getValue();
       const currentProblem = selectedProblems[currentProblemIndex][1];
 
-      // Run tests against all test cases
-      const results = [`Running tests for ${currentProblem.title}...`, ''];
+      // Execute code with sample test case
+      const sampleCase = currentProblem.cases[0];
+      const testCode = generateTestCode(sourceCode, sampleCase, language);
 
-      currentProblem.cases.forEach((testCase, index) => {
-        results.push(`Test Case ${index + 1}:`);
-        results.push(`Input: ${JSON.stringify(testCase.input)}`);
-        results.push(`Expected Output: ${JSON.stringify(testCase.output)}`);
-        results.push('---');
-      });
+      const result = await executeCode(language, testCode);
 
-      setOutput(results);
+      if (result.run.stderr) {
+        setOutput(['Error:', result.run.stderr]);
+      } else {
+        setOutput([
+          `Input: ${JSON.stringify(sampleCase.input)}`,
+          `Output: ${result.run.output.trim()}`,
+        ]);
+      }
     } catch (error) {
       setOutput(['Error running code:', error.message]);
+    } finally {
+      setIsRunning(false);
+    }
+  };
+  const submitCode = async () => {
+    if (!editorRef.current) return;
+    setIsRunning(true);
+    try {
+      const sourceCode = editorRef.current.getValue();
+      const currentProblem = selectedProblems[currentProblemIndex][1];
+
+      const results = [`Running tests for ${currentProblem.title}...`, ''];
+      let allTestsPassed = true;
+
+      for (const testCase of currentProblem.cases) {
+        const testCode = generateTestCode(sourceCode, testCase, language);
+
+        try {
+          if (testCase.id > 1) {
+            await delay(500);
+          }
+
+          const result = await executeCode(language, testCode);
+
+          results.push(`Test Case ${testCase.id}:`);
+          results.push(`Input: ${JSON.stringify(testCase.input)}`);
+          results.push(`Expected: ${JSON.stringify(testCase.output)}`);
+
+          if (result.run.stderr) {
+            results.push('Error:');
+            results.push(result.run.stderr);
+            results.push('Status: ❌ Failed (Runtime Error)');
+            allTestsPassed = false;
+          } else {
+            try {
+              const output = JSON.parse(result.run.output.trim());
+              const passed =
+                JSON.stringify(output) === JSON.stringify(testCase.output);
+              results.push(`Actual: ${result.run.output.trim()}`);
+              results.push(`Status: ${passed ? '✅ Passed' : '❌ Failed'}`);
+              if (!passed) allTestsPassed = false;
+            } catch {
+              results.push(`Actual: ${result.run.output}`);
+              results.push('Status: ❌ Failed (Invalid Output Format)');
+              allTestsPassed = false;
+            }
+          }
+          results.push('---');
+          setOutput([...results]);
+        } catch (error) {
+          results.push(`Error in test case ${testCase.id}:`);
+          results.push((error as Error).message);
+          results.push('---');
+          allTestsPassed = false;
+          setOutput([...results]);
+        }
+      }
+
+      results.push('');
+      results.push(
+        `Overall Result: ${
+          allTestsPassed ? '✅ All Tests Passed!' : '❌ Some Tests Failed'
+        }`,
+      );
+      setOutput(results);
+
+      // If all tests passed, mark the problem as solved
+      if (allTestsPassed) {
+        setSolvedProblems(prev => new Set([...prev, currentProblemIndex]));
+        // Check if all problems are solved
+        if (
+          solvedProblems.size === 2 &&
+          !solvedProblems.has(currentProblemIndex)
+        ) {
+          checkCompletion();
+        }
+      }
+    } catch (error) {
+      setOutput(['Error submitting code:', (error as Error).message]);
     } finally {
       setIsRunning(false);
     }
@@ -193,7 +293,17 @@ function solve(${Object.keys(firstCase.input).join(', ')}) {
     let intervalId: NodeJS.Timeout | undefined;
     if (isStarted && timeLeft > 0) {
       intervalId = setInterval(() => {
-        setTimeLeft(prev => prev - 1);
+        setTimeLeft(prev => {
+          if (prev <= 1) {
+            // Time's up
+            setCompletionMessage(
+              `Time's up! You solved ${solvedProblems.size} out of 3 problems.`,
+            );
+            setShowCompletionModal(true);
+            return 0;
+          }
+          return prev - 1;
+        });
       }, 1000);
     }
     return () => {
@@ -201,7 +311,7 @@ function solve(${Object.keys(firstCase.input).join(', ')}) {
         clearInterval(intervalId);
       }
     };
-  }, [isStarted, timeLeft]);
+  }, [isStarted, timeLeft, solvedProblems.size]);
 
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
@@ -238,6 +348,63 @@ function solve(${Object.keys(firstCase.input).join(', ')}) {
           <AlertDialogFooter>
             <AlertDialogAction onClick={() => startAssessment()}>
               Start Assessment
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      <AlertDialog open={showCompletionModal}>
+        <AlertDialogContent className="max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-2xl">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+            <div className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg">
+              {timeLeft === 0 ? (
+                <ClockIcon className="w-12 h-12 text-yellow-500" />
+              ) : solvedProblems.size === 3 ? (
+                <TrophyIcon className="w-12 h-12 text-yellow-500" />
+              ) : (
+                <XCircleIcon className="w-12 h-12 text-blue-500" />
+              )}
+            </div>
+          </div>
+
+          <AlertDialogHeader className="pt-8">
+            <AlertDialogTitle className="text-2xl font-bold text-center mb-2">
+              {timeLeft === 0 ? "Time's Up!" : 'Assessment Complete'}
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-center space-y-4">
+              <div className="py-4">
+                <div className="text-lg font-semibold mb-2">
+                  {completionMessage}
+                </div>
+                <div className="flex justify-center items-center gap-4 mt-4">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-500">
+                      {solvedProblems.size}
+                    </div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      Problems Solved
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-500">
+                      {3 - solvedProblems.size}
+                    </div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                      Problems Remaining
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="mt-6 flex justify-center">
+            <AlertDialogAction
+              onClick={() => {
+                setShowCompletionModal(false);
+                // Add any additional actions here (e.g., redirect to results page)
+              }}
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105"
+            >
+              Close
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
@@ -401,8 +568,12 @@ function solve(${Object.keys(firstCase.input).join(', ')}) {
                   >
                     Run
                   </button>
-                  <button className="px-4 py-1.5 bg-green-700 text-white rounded hover:bg-green-800">
-                    Submit
+                  <button
+                    className="px-4 py-1.5 bg-green-700 text-white rounded hover:bg-green-800 disabled:opacity-50"
+                    onClick={submitCode}
+                    disabled={isRunning || isProcessing}
+                  >
+                    {isProcessing ? 'Processing...' : 'Submit'}
                   </button>
                 </div>
               </div>

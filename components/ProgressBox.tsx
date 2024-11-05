@@ -19,7 +19,7 @@ const StatItem = ({
 );
 
 const ProgressBox = () => {
-  const { completedProblems, totalProblems, categoryProgress } = useProgress();
+  const { completedProblems, totalProblems } = useProgress();
   const completed = completedProblems.size;
   const progressPercentage = (completed / totalProblems) * 100;
 

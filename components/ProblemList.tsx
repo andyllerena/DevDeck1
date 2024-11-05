@@ -91,7 +91,10 @@ const ProblemsList = ({ categories: initialCategories }: ProblemsListProps) => {
   return (
     <section className="problems-list-section p-6 bg-white rounded-lg shadow-md">
       <header className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-semibold text-gray-800">Blind 75</h2>
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-800">Blind 75</h2>
+          <h3 className="text-sm text-gray-500">by NeetCode</h3>
+        </div>
         <Button
           onClick={resetProgress}
           variant="outline"

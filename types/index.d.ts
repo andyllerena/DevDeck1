@@ -215,4 +215,46 @@ declare module 'types' {
   }
 }
 
+export interface TestCase {
+  id: number;
+  input: any;
+  output: any;
+  explanation: string;
+}
+
+export interface Problem {
+  title: string;
+  description: string;
+  cases: TestCase[];
+  constraints: {
+    [key: string]: boolean;
+  };
+}
+
+export interface TestCasesData {
+  metadata: {
+    version: string;
+    lastUpdated: string;
+    totalProblems: number;
+    format: {
+      input: string;
+      output: string;
+      timeLimit: string;
+      memoryLimit: string;
+    };
+  };
+  testCases: {
+    [key: string]: Problem;
+  };
+}
+export interface CodeExecutionResult {
+  run: {
+    stdout: string;
+    stderr: string;
+    output: string;
+    code: number;
+    signal: null | string;
+  };
+}
+
 export {};
