@@ -33,19 +33,26 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({
     (acc, category) => acc + category.problems.length,
     0,
   );
-
+  const storageKey = userId ? `completedProblems_${userId}` : null;
   useEffect(() => {
-    const savedProblems = localStorage.getItem('completedProblems');
-    if (savedProblems) {
-      try {
-        setCompletedProblems(new Set(JSON.parse(savedProblems)));
-      } catch (error) {
-        console.error('Error loading progress:', error);
+    if (storageKey) {
+      const savedProblems = localStorage.getItem(storageKey);
+      if (savedProblems) {
+        try {
+          setCompletedProblems(new Set(JSON.parse(savedProblems)));
+        } catch (error) {
+          console.error('Error loading progress:', error);
+        }
       }
+    } else {
+      // Clear progress if no user is logged in
+      setCompletedProblems(new Set());
     }
-  }, []);
+  }, [storageKey]); // React to userId changes
 
   const updateProgress = (problemId: string, completed: boolean) => {
+    if (!storageKey) return; // Don't update if no user is logged in
+
     setCompletedProblems(prev => {
       const newSet = new Set(prev);
       if (completed) {
@@ -53,17 +60,16 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({
       } else {
         newSet.delete(problemId);
       }
-      localStorage.setItem(
-        'completedProblems',
-        JSON.stringify(Array.from(newSet)),
-      );
+      localStorage.setItem(storageKey, JSON.stringify(Array.from(newSet)));
       return newSet;
     });
   };
 
   const resetProgress = () => {
     setCompletedProblems(new Set());
-    localStorage.removeItem('completedProblems');
+    if (storageKey) {
+      localStorage.removeItem(storageKey);
+    }
   };
 
   return (

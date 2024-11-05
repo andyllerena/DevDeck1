@@ -54,7 +54,8 @@ const ProblemsList = ({ categories: initialCategories }: ProblemsListProps) => {
   };
 
   const handleProblemToggle = (problemId: ProblemId) => {
-    toggleProblemCompletion(problemId);
+    // Use updateProgress from context instead of undefined toggleProblemCompletion
+    updateProgress(problemId, !completedProblems.has(problemId));
   };
 
   const getAllProblems = (): Problem[] => {
