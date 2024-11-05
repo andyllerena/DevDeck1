@@ -1,7 +1,7 @@
 // components/ProgressBox.tsx
 'use client';
 import React from 'react';
-import DoughnutChart from '@/components/DoughnutChart';
+import DoughnutChart from './DoughnutChart';
 
 import { useProgress } from './ProgressContent';
 const StatItem = ({
