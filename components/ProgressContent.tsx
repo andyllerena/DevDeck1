@@ -20,11 +20,13 @@ export const useProgress = () => useContext(ProgressContext);
 interface ProgressProviderProps {
   children: React.ReactNode;
   categories: Category[];
+  userId?: string;
 }
 
 export const ProgressProvider: React.FC<ProgressProviderProps> = ({
   children,
   categories,
+  userId,
 }) => {
   const [completedProblems, setCompletedProblems] = useState<Set<string>>(
     new Set(),
@@ -33,7 +35,9 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({
     (acc, category) => acc + category.problems.length,
     0,
   );
-  const storageKey = userId ? `completedProblems_${userId}` : null;
+  const storageKey = userId
+    ? `completedProblems_${userId}`
+    : 'completedProblems_anonymous';
   useEffect(() => {
     if (storageKey) {
       const savedProblems = localStorage.getItem(storageKey);
@@ -51,8 +55,6 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({
   }, [storageKey]); // React to userId changes
 
   const updateProgress = (problemId: string, completed: boolean) => {
-    if (!storageKey) return; // Don't update if no user is logged in
-
     setCompletedProblems(prev => {
       const newSet = new Set(prev);
       if (completed) {
@@ -64,12 +66,9 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({
       return newSet;
     });
   };
-
   const resetProgress = () => {
     setCompletedProblems(new Set());
-    if (storageKey) {
-      localStorage.removeItem(storageKey);
-    }
+    localStorage.removeItem(storageKey);
   };
 
   return (
